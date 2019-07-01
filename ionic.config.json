@@ -1,0 +1,7 @@
+{
+  "name": "MoodChow",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

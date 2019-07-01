@@ -1,0 +1,107 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These 
+// styles are for the entire app and not just one component. Additionally, this 
+// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// and used throughout the application.
+
+// font-family 
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+$colors: (
+
+  theme_color_1:  #FF9F56,
+  theme_color_2:  #A9632D,
+  theme_color_3:  #E69A5E,
+  
+  placeholder : #ABB4BD,
+  
+  gradient_1: #ECA671,
+  gradient_2: #E97C28,
+  
+  grey:      #756E6E,
+  dark:       #303030,
+  
+  twitter: (
+    base: #55acee,
+    contrast: #ffffff
+    )
+
+    );
+
+ion-content{
+  font-family:'Roboto','Poppins',sans-serif;
+}
+
+.splash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff7400;
+  // background :linear-gradient(#FF9F56 , #E69A5E);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+
+
+  // font-size for h tags
+
+  $font-size-h1 : 24px;
+
+  $font-size-h2 : 20px;
+
+  $font-size-h3 : 18px;
+
+  $font-size-h4 : 14px;
+
+  $font-size-h5 : 12px;
+
+  $font-size-h6: 10px;
+
+  // font-size for h tags
+
+  $font-size-p-xs : 15px;
+
+  $font-size-p-sm : 20px;
+
+  $font-size-p-md : 25px;
+
+  $font-size-p-lg : 30px;
+
+  $font-size-p-lx : 35px;
+
