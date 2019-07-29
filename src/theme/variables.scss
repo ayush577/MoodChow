@@ -5,7 +5,7 @@
 :root {
   --ion-color-primary: #FF9F56;
   --ion-color-primary-rgb: 255,159,86;
-  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 0,0,0;
   --ion-color-primary-shade: #e08c4c;
   --ion-color-primary-tint: #ffa967;
@@ -66,6 +66,27 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+$colors: (
+
+  theme_color_1:  #FF9F56,
+  theme_color_2:  #A9632D,
+  theme_color_3:  rgb(250, 175, 118),
+  
+  placeholder : #ABB4BD,
+  
+  gradient_1: #ECA671,
+  gradient_2: #E97C28,
+  
+  grey:      #756E6E,
+  dark:       #303030,
+  
+  twitter: (
+    base: #55acee,
+    contrast: #ffffff
+    )
+
+  );
 
 
 

@@ -2,8 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// export const environment = {
+//   production: false
+// };
 export const environment = {
-  production: false
+  production: false,
+  weburl:"https://dev.hawkscode.com.au/moodchow/Webservice/",
+  weburl2:"https://dev.hawkscode.com.au/moodchow/Websrvices/"
 };
 
 /*

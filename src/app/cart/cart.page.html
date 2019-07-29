@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+          <ion-menu-button color="dark"></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <!-- <ion-icon slot="icon-only" name="search"></ion-icon> -->
+        <img src="../../assets/images/search.svg" alt="search">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Your Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="restaurant_list" no-padding>
+              <ion-list lines="none" no-padding>
+                <!-- <ion-item-sliding *ngFor="let country of countries"> -->
+                  <ion-item class="ion-no-padding" *ngFor= "let list of menulist">
+                    <ion-card class="detail_card" no-padding>
+                      <ion-row no-padding>
+                        <ion-col size="4" no-padding>
+                          <img *ngIf="list.image"  src="{{ list.imagepath }}"/>
+                          <img src="assets/images/sldier1.png"/>
+                        </ion-col>
+                        <ion-col size="8" >
+                          <ion-row>
+                            <ion-col class="r_name" size="10">
+                              <h6 class="ion-no-margin">{{ list.tbl_menus_name }}</h6>
+                            </ion-col>
+                            <ion-col size="2" text-right >
+                                <button ion-button class="deletebtn">
+                                  <img src="../../assets/images/dustbin.svg" alt="delete">
+                                </button>
+                              </ion-col>
+                            <ion-col class="r_address" size="12">
+                             {{ list.tbl_menus_description }}
+                            </ion-col>
+                            <ion-col size="6" class="price"  text-left >
+                              $ {{ list.tbl_menus_price }}
+                            </ion-col>
+                            <ion-col size="6" text-right class="add_button_position">
+                              <ion-button  class="add-button">
+                              {{ text }}
+                              </ion-button>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                    </ion-card>
+                  </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+
+</ion-content>

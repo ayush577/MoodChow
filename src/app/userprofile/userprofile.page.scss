@@ -1,0 +1,103 @@
+ion-header{
+  ion-toolbar{
+      --background: transparent;
+      color: white;
+      background-image: linear-gradient(to bottom, #ff9f56, #e69a5e);
+      ion-icon{
+          
+          font-size: 8.5vw;
+      }
+      ion-title{
+          font-family: "Poppins",sans-serif;
+          font-size: 4.5vw;
+          font-weight: 400;
+      }
+  }
+}
+
+.morediv{
+  position: fixed;
+  z-index: 1;
+  height: 0px;
+}
+.custom_btn1{
+  background-image: linear-gradient(to right, #ECA671, #f19651);
+  color: white;
+  padding: 2vw 5vw;
+  font-size: 2.6vw;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5vw;
+  font-family: 'Poppins', sans-serif !important;
+  box-shadow: 0 0.7px 3px 0 rgba(255, 110, 0, 0.53);
+}
+  .profile_img{
+      border-radius: 50%;
+     
+  }
+  .camera_icon{
+      color: white;
+      font-size: 7vw;
+     
+  }
+  .camera_btn{
+      position: absolute;
+      z-index: 2; 
+      margin-top: 23.5vw;
+      height: 8vw;
+      margin-left: -10vw;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 2px 3.5px 6px 0 rgba(0, 0, 0, 0.37);    
+  }
+  .restaurant_name{
+      font-size: 4.5vw;
+      font-family: "poppins";
+      font-weight: 600;
+      margin-top: 2vw;
+      padding: 3vw 15vw;
+      color: #303030;
+  }
+  .about{
+      .about-col{
+          padding:2.5vw;
+          font-family: "poppins";
+          font-size: 3.5vw;
+      }
+      margin-top: 4vw;
+      img{
+          vertical-align:middle;
+      }
+      .edit{
+          color:#ff9c5c;
+          font-size: 5vw;
+          vertical-align: middle;
+          padding-left: 3vw;
+      }
+      ion-icon{
+        font-size: 28px;
+        color: #303030;
+      }
+  }
+  .table_heading{
+      font-family: Poppins;
+      font-weight: 500;
+      padding: 6vw;
+      letter-spacing: 0.08px;
+      color:#a9632d;
+  }
+  .table{
+      border: 1px solid black;
+      margin: 1vw 5.5vw;
+      margin-bottom: 10vw !important;
+      ion-item{
+          border-bottom :2px solid #757575;  
+          font-family: "Roboto";    
+          font-weight: 500;
+          font-size: 3.5vw;
+          font-stretch: condensed;
+          color: #363636;
+          max-height: 12vw;
+         
+      }
+  }

@@ -1,0 +1,33 @@
+ion-header{
+    ion-toolbar{
+        color: #303030;
+        --background: transparent;
+        position: absolute;
+        font-family: "poppins",sans-serif;
+        z-index: 2;
+        padding:6vw;
+    }
+}
+.editrow{
+padding:10vw;
+}
+
+  
+ion-item{
+    --height:15vw;
+    --padding-start: 0px !important; 
+   
+    --inner-padding-end: 0px !important;
+    color: #303030;
+  
+    font-family: "poppins",sans-serif;
+    margin-top: 2vw;
+  }
+  .find_more{
+      margin:3vw;
+      padding: 2vw 15vw;
+  }
+
+  .go_back{
+  width: 25%;
+}

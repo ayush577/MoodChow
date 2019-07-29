@@ -1,0 +1,77 @@
+.mcard_arrow{
+  color: #ff9c5c;
+  font-size: 10vw;
+  margin-left: 84.5vw;
+  margin-top: -5vw;   
+}
+.more_card{
+  width: 56vw;
+  height: 100vw;
+ margin-left:38.5vw;
+  margin-top: -5vw;
+  text-align: center;
+  background: #ff9c5c;
+  
+  button{
+      background: transparent;
+      color: #fff;
+      padding: 1.5vw;
+      font-size: 5.5vw;
+  }
+
+}
+.morediv{
+  position: fixed;
+  z-index: 1;
+  height:0px;
+}
+
+.see_all{
+  font-family: 'Poppins','Roboto',sans-serif;
+  font-size: 3vw;
+  font-weight: 500;
+  color: #756e6e;
+  margin-right: 5px;
+}
+.add_button_position{
+padding-bottom: 0px;
+}
+.detail_card{
+  margin: 5px !important;
+}
+
+.r_name{
+font-family: 'Poppins', Medium !important;
+font-size: 4vw;
+font-weight: 500;
+text-transform: uppercase;
+color: #303030;
+}
+.r_address{
+font-size: 3vw;
+text-transform: capitalize;
+padding-top: 0px;
+font-weight: 500;
+padding-right: 0px;
+font-family: 'Poppins' !important;
+color: #303030;
+}
+.r_type{
+font-size: 2.5vw;
+padding-top: 0px;
+font-family: 'Poppins', Medium !important;
+color: #303030;
+}
+.r_rating{
+color: #303030;
+font-size: 2.5vw;
+img{
+    margin-top:-0.5vw !important;
+    width: 17vw;
+}
+
+}
+
+.item-inner{
+  padding:0 !important;
+}

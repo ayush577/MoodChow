@@ -11,6 +11,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap');
+
 $colors: (
 
   theme_color_1:  #FF9F56,
@@ -35,6 +37,8 @@ $colors: (
 ion-content{
   font-family:'Roboto','Poppins',sans-serif;
 }
+
+
 
 .splash {
   position: absolute;
@@ -76,6 +80,109 @@ ion-content{
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
+
+.common_button_style{
+  font-size: 20px;
+  font-family: 'Poppins','Roboto',sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  width: 188px;
+  height: 50px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eca671), to(#e97c28));
+  background: linear-gradient(to bottom, #eca671, #e97c28);
+  line-height: 1.5;
+  letter-spacing: 0.36px;
+  box-shadow: 0 3.5px 12px 0 rgba(255, 110, 0, 0.53);
+}
+
+.placeholder_color{
+  color: var( --ion-color-tertiary );
+  font-size:15px; 
+}
+
+.error_message{
+  color: #fff!important;
+  background-color: #ff8695!important;
+  margin: 0px 40px;
+  text-align: center;
+  padding: 10px;
+}
+
+.toast_alert-color{
+  --background: #ff8695;
+  --color: #fff;
+  --border-radius: 0;
+
+}
+
+.my_custom-menu{
+    --width: 70vw;
+    background: transparent;
+    box-shadow: 0.4vw 0.2vw 3vw #FF9F56;
+  
+    .menu_header{
+    --background:linear-gradient(106deg, #ff9f56, #e69a5e) !important;
+    height: 14vw !important;
+    ion-title{
+        font-size: 4vw;
+        color: white;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-style: italic;
+        // margin-top: 5px;
+        padding: 5vw;
+        line-height: 1.33;
+        letter-spacing: 0.04em;
+    }
+
+    
+    
+}
+
+.sidebar_list-style{
+
+  .list_style{
+
+    ion-label{
+
+    --font-default: 'Roboto Condensed', sans-serif !important;
+
+    font-family: var( --font-default ) !important;
+    font-weight: normal;
+    color: #303030;
+    line-height: 1.35;
+    letter-spacing: 0.09px;
+    margin: 0 0 0 20px;
+
+    }
+
+  }
+
+  hr{
+    background: #FF9F56 !important;
+  }
+
+  .verison_container{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: var( --ion-color-primary );
+    font-size:15px;
+    line-height: 1.35;
+    letter-spacing: 0.09px;
+  }
+
+}
+
+}
+
+.my-custom-modal-css .modal-wrapper {
+  height: 60%;
+  bottom: 0%;
+  position: absolute; 
+  display: block;  
+}
+
+
 
 
 

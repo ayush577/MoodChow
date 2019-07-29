@@ -1,0 +1,85 @@
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row class="mt-5">
+      <ion-col class="ion-margin">
+        <ion-img class="go_back" src="assets/images/goback.png"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="ion-no-margin title_with_logo">Register To The <strong>MoodChow</strong></p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-col size="6" offset="3">
+        <ion-img src="assets/images/logowithfun.png"> </ion-img>
+      </ion-col>
+    </ion-row>
+    <form role="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+
+        <!-- {{ submitted && f.Email.errors || submitted && f.FullName.errors || submitted && f.Password.errors || submitted && f.Number.errors || submitted && f.confirmPassword.errors || loginerrors }} -->
+        <div *ngIf=" submitted && f.fullname.errors || submitted && f.email.errors || submitted && f.phonenumber.errors || submitted && f.password.errors ||  submitted && f.confirmpassword.errors || registererrors" >
+            <div class="error_message">{{registererrorsmsg}}</div>
+        </div>
+
+          <div class="form_position">
+
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Full Name</ion-label>
+          <ion-input type="text" [(ngModel)]="data.fullname" formControlName="fullname" [ngClass]="{ 'is-invalid': submitted && f.fullname.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Email Address</ion-label>
+          <ion-input type="email"  [(ngModel)]="data.email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+
+       <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Phone Number</ion-label>
+         
+          <ion-input type="tel" [(ngModel)]="data.phonenumber" formControlName="phonenumber" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Password</ion-label>
+         
+          <ion-input [type]="passwordType1" [(ngModel)]="data.password" formControlName="password" clearOnEdit="false" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          </ion-input>
+          <ion-icon class="password_eye" [name]="passwordIcon1" slot="end" (click)="hideShowPassword1()"></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Confirm Password</ion-label>
+          <ion-input [type]="passwordType2" formControlName="confirmpassword" [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }">
+          </ion-input>
+          <ion-icon class="password_eye" [name]="passwordIcon2" slot="end" (click)="hideShowPassword2()"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin"> 
+      <ion-col size="10" offset="1" text-center>
+        <button type="submit" class="common_button_style">
+          Register
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  </form>
+
+
+  </ion-grid>
+
+</ion-content>

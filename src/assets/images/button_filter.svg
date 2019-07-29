@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="109" height="43" viewBox="0 0 109 43">
+  <defs>
+    <filter id="Rectangle_16" x="0" y="0" width="109" height="43" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ff6e00" flood-opacity="0.529"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_26" data-name="Group 26" transform="translate(9 6)">
+    <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Rectangle_16)">
+      <g id="Rectangle_16-2" data-name="Rectangle 16" transform="translate(9 6)" fill="#ff9f56" stroke="#ff9f56" stroke-width="1">
+        <rect width="91" height="25" rx="12.5" stroke="none"/>
+        <rect x="0.5" y="0.5" width="90" height="24" rx="12" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_25" data-name="Group 25" transform="translate(23 3)">
+      <text id="Sort" transform="translate(16.512 15)" fill="#fff" font-size="14" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Sort</tspan></text>
+      <g id="Group_24" data-name="Group 24" transform="translate(7.512 3.648) rotate(90)">
+        <g id="back">
+          <path id="Path_28" data-name="Path 28" d="M.514,3.756,3.907.363a.213.213,0,0,0-.3-.3L.063,3.606a.212.212,0,0,0,0,.3L3.606,7.449a.214.214,0,0,0,.15.063.207.207,0,0,0,.15-.063.212.212,0,0,0,0-.3Z" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+        </g>
+        <g id="back-2" data-name="back" transform="translate(11.614 7.512) rotate(180)">
+          <path id="Path_28-2" data-name="Path 28" d="M.514,3.756,3.907.363a.213.213,0,0,0-.3-.3L.063,3.606a.212.212,0,0,0,0,.3L3.606,7.449a.214.214,0,0,0,.15.063.207.207,0,0,0,.15-.063.212.212,0,0,0,0-.3Z" transform="translate(0 0)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,44 +1,190 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+
+  <ion-grid class="header_grid">
+
+    <ion-row>
+    <ion-toolbar class="toolbar_background-transparent">
+      <ion-buttons color="dark" slot="start">
+        <ion-menu-button color="dark"></ion-menu-button>
+      </ion-buttons>
+      <ion-img src="assets/images/moodchow.png"> </ion-img>
+      <ion-icon mode="md" color="dark" slot="end" name="more" class="more_icon"> </ion-icon>
+    </ion-toolbar>
+    </ion-row>
+
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <ion-searchbar mode="ios" class="custom_searchbar">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <h4 class="Home__section-heading">Your Location</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row class="container__location">
+        <ion-col size="6">
+            <h6> latitude  {{ userlocation.lat }} </h6>
+        </ion-col>
+        <ion-col size="6">
+            <h6> longitude  {{ userlocation.lng }} </h6>
+        </ion-col>
+    </ion-row>
+    <ion-row class="my-20">
+        <ion-col size="12">
+            <h4 class="Home__section-heading">Top Restaurant</h4>
+          </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+        <ion-slides class="ion-no-padding" [options]="slideOpts" >
+          <ion-slide *ngFor="let top of topRestaurant">
+            <ion-card class="welcome-card" routerLink="/restaurantprofile/{{top.tbl_restaurant_id}}" routerDirection="forward">
+                <img ion-img src="{{ top.photospath }}">
+                  <div class="card__footer">
+                      <ion-item>
+                        <ion-text slot="start" >{{ top.tbl_restaurant_name }}</ion-text>
+                        <ion-avatar slot="end">
+                          <img src="assets/images/restaurant_forward.svg" />
+                        </ion-avatar>
+                      </ion-item>
+                  </div>
+              </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row class="my-20">
+      <ion-col size="12">
+          <h4 class="Home__section-heading">Best Offers</h4>
+        </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-img class="offer_banner" src="assets/images/offer_banner.png"> </ion-img>
+  </ion-row>
+
+  <ion-row class="my-20">
+    <ion-col size="8">
+      <h4 class="Home__section-heading">Near By Restaurant</h4>
+    </ion-col>
+    <ion-col size="4">
+        <h4 class="Home__section-seeall">See all</h4>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    
+    <ion-img class="filter__option-btn" src="assets/images/button_filter.svg" (click)="sortingOption()"></ion-img>
+    
+    <ion-img class="filter__option-btn" src="assets/images/button_filter2.svg"></ion-img>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="ion-no-padding" size="12">
+        <ion-list lines="none" no-padding>
+            <ion-item no-padding routerLink="/restaurantprofile/{{restaurant.tbl_restaurant_id}}" *ngFor="let restaurant of restaurantlist" >
+                <ion-card class="detail_card" no-padding>
+                  <ion-row no-padding>
+                    <ion-col size="4">
+                      <div class="image__container" width="100px" height="100px">
+                        <img  class="restaurant_images" src="{{ restaurant.restaurant_logo }}"/>
+                      </div>
+                    </ion-col>
+                    <ion-col size="6" no-padding class="content-middle">
+              
+                          <h1 class=" ion-no-padding ion-no-margin r_name">{{ restaurant.tbl_restaurant_name }}</h1>
+                         <!-- <p class="ion-no-padding ion-no-margin r_address">{{restaurant.tbl_restaurant_address}}</p> -->
+                          <p class="ion-no-padding ion-no-margin r_type">{{restaurant.tbl_category_name}}</p>
+                          
+                          <div class="rating_content">
+                              <img src="assets/images/star.svg"/>
+                              <ion-label> <p>{{ restaurant.rating }}</p>
+                                <p>( <span>{{restaurant.rating_count}}</span> )</p>
+                              </ion-label>
+                            </div>
+                    </ion-col>
+                    <ion-col size="2" no-padding>
+                      <button ion-button class="arrow_forward1">
+                        <img src="assets/images/restaurant_forward.svg"/>
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                </ion-card>
+              </ion-item>
+        </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-margin">
+      <ion-col size="10" offset="1" text-center>
+        <button class="common_button_style">
+          Load More
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+   
 </ion-content>
+
+
+
+
+
+
+
+
+<!-- <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Resources</ion-label>
+    </ion-list-header>
+    <ion-item href="https://ionicframework.com/docs/">
+      <ion-icon slot="start" color="medium" name="book"></ion-icon>
+      <ion-label>Ionic Documentation</ion-label>
+    </ion-item>
+    <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+      <ion-icon slot="start" color="medium" name="build"></ion-icon>
+      <ion-label>Scaffold Out Your App</ion-label>
+    </ion-item>
+    <ion-item href="https://ionicframework.com/docs/layout/structure">
+      <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+      <ion-label>Change Your App Layout</ion-label>
+    </ion-item>
+    <ion-item href="https://ionicframework.com/docs/theming/basics">
+      <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+      <ion-label>Theme Your App</ion-label>
+    </ion-item>
+  </ion-list> -->

@@ -1,4 +1,247 @@
-.welcome-card ion-img {
-  max-height: 35vh;
+
+.my-20{
+  margin: 20px 0 10px 0;
+}
+
+.header_grid{
+  background-image: url('../../assets/images/Home_page-background.svg');
+  background-repeat: round;
+  object-fit: contain;
+  width:100vw;
+  height:49vw;
+  margin-top: -5px;
+}
+
+.toolbar_background-transparent{
+
+  --background: transparent;
+
+    background: var( --background );
+
+    ion-img{
+      width: 27%;
+      position: absolute;
+      margin-top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    ion-icon{
+      font-size:30px;
+    }
+  
+}
+
+.custom_searchbar{
+  --background: #ffffff;
+}
+
+.Home__section-heading{
+  margin: 0 0 0 7px;
+  font-family: 'Poppins','Roboto',sans-serif;
+  color: #303030
+}
+
+.container__location{
+  margin: 0px 7px;
+}
+
+.welcome-card  {
+
+  box-shadow: 0.5px 0.5px 7.5px 0 rgba(0, 0, 0, 0.2);
+
+  img{
+    width:100%;
+    overflow: hidden;
+  }
+
+  .card__footer{
+
+    position: relative;
+
+    ion-item{
+      margin-top: -33px;
+      height: 40px;
+    }
+
+    ion-text{
+      width: 133px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: 'Poppins','Roboto',sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+    }
+
+    ion-avatar{
+      padding: 9px;
+      margin: -5px -10px 0 0;
+    }
+
+  }  
+
+
+}
+
+.content-middle{
+  width: 190px !important;
+}
+
+.offer_banner{
+  padding: 10px 12px;
+}
+
+.Home__section-seeall{
+  margin: 0 0 0 7px;
+  font-family: 'Poppins','Roboto',sans-serif;
+  color: #756e6e;
+  font-size: 1em;
+  text-align: end;
+  margin-right: 10px;
+}
+
+.filter__option-btn{
+  width: 35%;
+  margin: 10px 0;
+}
+
+.detail_card{
+  margin-right: 1.8vw;
+  border-radius: 5px;
+  box-shadow: 0.5px 1px 3px 0 rgba(0, 0, 0, 0.15);
+  margin: 11px 0 0 1.8vw;
+
+  .restaurant_images{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 5.5px;
+  }
+
+}
+.r_name{
+  font-family: 'Poppins', Medium !important;
+  font-size: 4vw;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #303030;
+  margin: 15px 0px 10px 0px;
+  white-space: nowrap;
+  color: #000;
+  height: 17px;
+  text-overflow: ellipsis;
   overflow: hidden;
+}
+.r_address{
+  font-size: 2.5vw;
+  text-transform: capitalize;
+  padding-top: 0px;
+  font-weight: 500;
+  padding-right: 0px;
+  font-family: 'Poppins' !important;
+  color: #303030;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.r_type{
+  font-size: 3.2vw;
+  padding-top: 0px;
+  font-family: 'Poppins', 'Roboto',sans-serif;
+  color: #303030;
+  font-weight: 500;
+  margin: 5px 0px;
+}
+.r_rating{
+  color: #303030;
+  font-size: 2.5vw;
+  position: relative;
+  top: -13px;
+
+  img{
+      position: absolute;
+      top: 16px;
+      width: 10%;
+  }
+
+  ion-label{
+    position: absolute;
+    display: inherit; 
+    display: -webkit-inline-box;
+    top: 18px;
+    left: 27px;
+
+    p{
+      color:#303030;
+      margin-left: 5px;
+      font-family: 'Roboto','Poppins',sans-serif;
+      font-weight: 500;
+    }
+
+  }
+  
+}
+
+.rating_content{
+  
+  img{
+    vertical-align: middle;
+    width: 20px;
+    display: inline-block;
+  }
+
+  ion-label{
+    display: inline-block;
+    margin-top: 11px;
+    vertical-align: middle;
+    margin-left: 5px;
+
+    p{
+      display: inline-block;
+      margin: 0 0 0 3px;
+    }
+
+  }
+
+}
+
+
+.arrow_forward1{
+  width: 6.5vw;
+  height: 6.5vw;
+  padding: 0px;
+  margin-left: 6vw;
+  margin-top: 19vw;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  
+  img{
+      width: 6.5vw !important;
+  }
+}
+
+
+.mymodal .model-wrapper{
+  --max-height:64%;
+  max-height: var( --max-height ) !important;
+  height: 60% !important;
+  --height: 60%;
+  height: var( --height ) !important;
+  
+  position:absolute;
+
+  bottom: 0%;
+
+}
+
+.my-custom-modal-css .modal-wrapper {
+  height: 20%;
+  top: 80%;
+  position: absolute; 
+  display: block;  
 }

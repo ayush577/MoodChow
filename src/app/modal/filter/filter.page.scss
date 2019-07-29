@@ -1,0 +1,54 @@
+.cross--color--size{
+  font-size: 20px;
+}
+
+.title--sort--filter{
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.clear--all--text{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+ion-segment-button{
+  border: none;
+  border-radius: 0;
+  color: #fff !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #ffcfaa !important;
+}
+
+.segment-button-checked{
+  border: none;
+  border-radius: 0;
+  color: #fff !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #ff9e54 !important;
+}
+
+ion-label{
+  font-size:0.9em;
+  font-weight:500;
+}
+
+.text--style{
+  font-size: 0.7em;
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+  color: #515256;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.list--filter--sort{
+  overflow: auto;
+}
+
+

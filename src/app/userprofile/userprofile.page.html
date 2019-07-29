@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+            <ion-menu-button color="dark"></ion-menu-button>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <!-- <ion-icon slot="icon-only" name="search"></ion-icon> -->
+          <img src="../../assets/images/search.svg" alt="search">
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Your Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+    <ion-grid no-padding>
+        <ion-row no-padding align-items-center style="margin-top:7vw;">
+          <ion-col size="4" text-center no-padding>
+            <button ion-button class="custom_btn1" routerLink="/edit-profile/" >Edit Profile</button>
+          </ion-col>
+          <ion-col size="4" text-center no-padding>
+            <img src="assets/images/l5.png" class="profile_img" alt="" />
+            <button ion-button class="camera_btn">
+              <img src="assets/images/camera.svg" class="camera_icon" />
+            </button>
+          </ion-col>
+          <ion-col size="4" text-center no-padding>
+            <button ion-button class="custom_btn1">Use Gallery</button>
+          </ion-col>
+          <ion-col size="12" class="restaurant_name" text-center>
+            Hawkscode Jaipur
+          </ion-col>
+        </ion-row>
+        <ion-row class="about">
+          <ion-col size="12" class="about-col">
+            <ion-row>
+              <ion-col text-center size="2" class="ion-no-padding">
+                <!-- <img src="assets/images/email.svg" alt=""> -->
+                <ion-icon name="mail"></ion-icon>
+              </ion-col>
+              <ion-col text-left size="10">
+                Hawkscode@gmail.com
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col size="12" class="about-col">
+            <ion-row>
+              <ion-col text-center size="2">
+                <img src="assets/images/call.svg" alt="">
+              </ion-col>
+              <ion-col text-left size="10">
+                9876543210
+              </ion-col >
+            </ion-row>
+          </ion-col>
+          <ion-col size="12" class="about-col">
+            <ion-row>
+              <ion-col text-center size="2">
+                <img src="assets/images/pin.svg" alt="">
+              </ion-col>
+              <ion-col text-left size="10">
+                  2/40, Hawkskcode, 99 Tower, London
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" text-center class="table_heading">
+              Restaurant/Store Owner
+          </ion-col>
+          <ion-col class="table" no-padding>
+            <ion-item lines="none" text-wrap>
+                Manage Restaurant  <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item lines="none">
+                Add Restaurant <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item  lines="none">
+                Manage Menu <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item lines="none">
+                Add Menu <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item lines="none">
+                Manage Photos <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item lines="none" >
+                Add Photos <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item lines="none">
+                Manage Order <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+            <ion-item lines="none" style="border-bottom:none;">
+                Manage Time <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>    
+      </ion-grid>
+
+</ion-content>

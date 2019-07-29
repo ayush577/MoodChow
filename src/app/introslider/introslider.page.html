@@ -1,0 +1,99 @@
+<ion-content>
+  <ion-slides pager="true" (ionSlideDidChange)="slideChange()">
+    <ion-slide>
+      <ion-grid>
+        <ion-row class="skip_position">
+          <ion-col>
+            <button (click)="skip()" id="skip_button">{{ skipMsg }}</button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="img_position">
+          <ion-col>
+            <ion-img src="assets/images/walkthrough1.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row class="title_position">
+          <ion-col>
+            <h1>Fresh Food</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row class="title_position">
+          <ion-col>
+            <p class="intro_content">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+              ligula eget dolor.
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <ion-grid>
+      <ion-row class="skip_position">
+          <ion-col>
+            <!-- <p class="skip_button">Skip</p> -->
+            <button (click)="skip()" id="skip_button">{{ skipMsg }}</button>
+          </ion-col>
+      </ion-row>
+
+      <ion-row  class="img_position">
+        <ion-col>
+            <ion-img class="ion-no-margin" src="assets/images/walkthrough2.png"></ion-img>
+        </ion-col>
+      </ion-row>
+
+        <ion-row class="title_position">
+            <ion-col>
+                <h1>Fast Delivery</h1>
+            </ion-col>
+          </ion-row>
+
+            <ion-row class="content_position">
+              <ion-col>
+                <p class="intro_content">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                    ligula eget dolor.
+                </p>
+              </ion-col>
+            </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+        <ion-grid>
+        <ion-row class="skip_position">
+            <ion-col>
+              <button (click)="skip()" id="skip_button">{{ skipMsg }}</button>
+            </ion-col>
+        </ion-row>
+        
+          <ion-row  class="img_position">
+            <ion-col>
+                <ion-img src="assets/images/walkthrough3.png"></ion-img>
+            </ion-col>
+          </ion-row>
+
+            <ion-row class="title_position">
+              <ion-col>
+                  <h1>In Best Price</h1>
+              </ion-col>
+            </ion-row>
+      
+            <ion-row class="content_position">
+              <ion-col>
+                <p class="intro_content">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                    ligula eget dolor.
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="Get_Started">
+              <ion-col>
+                <button id="Get_Started_Button" (click)="theEnd()">
+                  Get Started
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

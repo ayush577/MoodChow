@@ -1,0 +1,67 @@
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="mt-20" text-center>
+        <p class="title_with_logo">Login To The</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" offset="3">
+        <ion-img src="assets/images/logowithfun.png"> </ion-img>
+      </ion-col>
+    </ion-row>
+    <form role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div *ngIf="submitted && f.email.errors || submitted && f.password.errors || loginerrors" >
+            <div class="error_message">{{loginerrorsmsg}}</div>
+        </div>
+
+    <ion-row class="mt-10">
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Email ID</ion-label>
+          <ion-input type="email" formControlName="email" [(ngModel)]="data.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Password</ion-label>
+          <ion-input [type]="passwordType" formControlName="password" [(ngModel)]="data.password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          </ion-input>
+          <ion-icon class="password_eye" [name]="passwordIcon"  slot="end" (click)="hideShowPassword()"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="forgot_style" routerLink="/forgot">Forgot Password?</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-col size="10" offset="1" text-center>
+        <button type="submit" class="common_button_style">
+          Login
+        </button>
+      </ion-col>
+    </ion-row>
+    </form>
+    <ion-row>
+      <ion-col text-center>
+        <p class="Register_login_style">Don't you have account
+          <span routerLink="/register">
+            Register Now?
+          </span>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <span class="Login_skip_style" routerLink="/home">Skip</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

@@ -1,0 +1,156 @@
+
+.restaurant_details{
+    
+  .slider{
+          position: relative;
+          z-index: 1;
+          background-size: contain;
+          .slideimage{
+              height: 100%;
+              width: 100%;
+              object-fit: contain;
+          }
+          .goback{
+            width: 18%;
+            margin-left: 10px;
+          }
+      ion-header{
+          ion-toolbar{
+              color: white;
+              --background: transparent;
+              position: absolute;
+              z-index: 2;
+          }
+      }
+  }
+  .r_details{
+      margin: 2vw 10vw;
+    //   position: absolute;
+      z-index: 2;
+      margin-top: -13vw;
+      background: white;
+      border-radius: 0;
+      box-shadow: 0 4.5px 10px 0 rgba(0, 0, 0, 0.3);
+      
+      ion-card-header{
+          font-family: "Poppins", sans-serif;
+          font-size: 4vw;
+          text-transform: uppercase;
+          font-weight: 600;
+          line-height: 1.5;
+          padding: 3vw 0vw 0vw 0vw;
+          letter-spacing: normal;
+          color: #303030;
+      }
+      .address-state{
+          text-transform: capitalize;
+          font-family: "Poppins",sans-serif;
+          font-size: 2.5vw;
+          font-weight: 500;
+          color: #303030;
+      }
+      .address-full{
+          text-transform: capitalize;
+          font-family: "Roboto",sans-serif;
+          font-size: 2.5vw;
+          color: #303030;
+      }
+      
+      .bottom{
+          border-top: 0.3vw solid #ff9f56;
+          img{
+              
+              width:3.5vw;
+              display: inline-block;
+              vertical-align:middle;
+          }
+          ion-col{
+              margin-top: 1vw;
+              margin-bottom: 1vw;
+              text-transform: capitalize;
+              font-family: "Poppins",sans-serif;
+              font-size: 2.5vw;
+              font-weight: 500;
+              color: #303030;
+              align-self: center; 
+          }
+      }
+  }
+  .contact_us{
+      flex: auto !important;
+      font-family: "Roboto",sans-serif;
+      font-weight: 500;
+      line-height: 1.33;
+      letter-spacing: 0.8px;
+      color: #ff9f56;
+      margin: 2vw;
+      margin-bottom: 2vw;
+  }
+  .number{
+      color: white;
+      font-size: 3vw;
+      border-radius: 5vw;
+      font-family: 'Poppins','Roboto',sans-serif;
+      font-weight: 600;
+      padding: 2.7vw 5.5vw;
+      background-color: #ff9f56;
+  }
+  .menu{
+      font-family: 'Poppins','Roboto',sans-serif;
+      font-size: 4.5vw;
+      font-weight: 500;
+      color: #303030;
+      margin-left: 5px;
+  }
+  .see_all{
+      font-family: 'Poppins','Roboto',sans-serif;
+      font-size: 3vw;
+      font-weight: 500;
+      color: #756e6e;
+      margin-right: 5px;
+  }
+  .add_button_position{
+    padding-bottom: 0px;
+  }
+  .detail_card{
+      margin: 5px !important;
+  }
+
+  .r_name{
+    font-family: 'Poppins', Medium !important;
+    font-size: 4vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #303030;
+}
+.r_address{
+    font-size: 3vw;
+    text-transform: capitalize;
+    padding-top: 0px;
+    font-weight: 500;
+    padding-right: 0px;
+    font-family: 'Poppins' !important;
+    color: #303030;
+}
+.r_type{
+    font-size: 2.5vw;
+    padding-top: 0px;
+    font-family: 'Poppins', Medium !important;
+    color: #303030;
+}
+.r_rating{
+    color: #303030;
+    font-size: 2.5vw;
+    img{
+        margin-top:-0.5vw !important;
+        width: 17vw;
+    }
+    
+}
+  
+  
+  
+  
+
+  
+}

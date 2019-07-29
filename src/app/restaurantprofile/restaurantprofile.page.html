@@ -1,0 +1,110 @@
+<ion-content class="restaurant_details" no-padding>
+    <ion-grid no-padding>
+      <ion-row no-padding>
+        <ion-col size="12" no-padding class="slider">
+          <ion-header no-border>
+            <ion-toolbar>
+              <ion-buttons slot="start" (click)="back()">
+                <img class="goback" src="../../assets/images/goback.png"/>
+              </ion-buttons>
+            </ion-toolbar>
+            <ion-slides [options]="slideOpts">
+              <ion-slide *ngFor="let slide of getSidlerDetail">
+                <img class="slideimage" src="{{slide.imagepath}}"/>
+              </ion-slide>
+            </ion-slides>
+          </ion-header>
+        </ion-col>
+      </ion-row>
+      <ion-card class="r_details" text-center>
+        <ion-card-header text-center>
+          {{  getRestaurantDetail.tbl_restaurant_name }}
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <ion-row>
+            <ion-col size="12" class="address-state" text-center>
+              {{ getRestaurantDetail.tbl_restaurant_address }}
+            </ion-col>
+            <ion-col size="12" text-center class="address-full">
+              {{ getRestaurantDetail.tbl_restaurant_email }}
+            </ion-col>
+            <hr>
+            <ion-col size="12" no-padding>
+              <ion-row class="bottom">
+                <ion-col size="6" text-center no-padding>
+                  <img src="../../assets/images/star.svg" alt="star" />
+                  <span class="text">&nbsp; &nbsp;4.8 (355) </span>
+                </ion-col>
+                <!-- <ion-col size="4" text-center no-padding>
+                  <img src="../../assets/images/timer.png" alt="timer" />
+                  <span class="text">&nbsp; &nbsp;Fast Delivery </span>
+                </ion-col> -->
+                <ion-col size="6" text-center no-padding>
+                  <img src="../../assets/images/r_type.png" alt="type" />
+                  <span class="text">&nbsp;&nbsp;{{  getRestaurantDetail.tbl_category_name}}</span>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-row>
+        <ion-col text-center size="12" class="contact_us">
+          CONTACT US
+        </ion-col>
+        <ion-col size="12" text-center style="padding-right: 4vw;">
+          <button ion-button (click)="callRestaurant(getRestaurantDetail.tbl_restaurant_phone)" class="number">{{ getRestaurantDetail.tbl_restaurant_phone }}</button>
+        </ion-col>
+        <ion-col>
+          <ion-row>
+            <ion-col text-left class="menu">
+              Menu
+            </ion-col>
+            <ion-col text-right >
+
+              <ion-button class="see_all" fill="clear" routerLink="/restaurantmenu/{{getRestaurantDetail.tbl_restaurant_id}}" >
+                See all
+              </ion-button>
+              
+            </ion-col>
+            <ion-col size="12" class="restaurant_list" no-padding>
+              <ion-list lines="none" no-padding>
+                <!-- <ion-item-sliding *ngFor="let country of countries"> -->
+                  <ion-item class="ion-no-padding" *ngFor= "let menulist of getMenuListProfile">
+                    <ion-card class="detail_card" no-padding>
+                      <ion-row no-padding>
+                        <ion-col size="4" no-padding>
+                          <img src="{{ menulist.imagepath }}"/>
+                        </ion-col>
+                        <ion-col size="8" >
+                          <ion-row>
+                            <ion-col class="r_name" size="12">
+                              <h6 class="ion-no-margin">{{ menulist.tbl_menus_name }}</h6>
+                            </ion-col>
+                            <ion-col class="r_address" size="12">
+                             {{ menulist.tbl_menus_description }}
+                            </ion-col>
+                            <ion-col size="6" class="price"  text-left >
+                              $ {{ menulist.tbl_menus_price }}
+                            </ion-col>
+                            <ion-col size="6" text-right class="add_button_position">
+                              <ion-button *ngIf="!checkCartInProduct(menulist.tbl_menus_id)" (click)="addToCart(menulist.tbl_menus_id)"  class="add-button">
+                              {{ text }} --
+                              </ion-button>
+
+                              <ion-button *ngIf="checkCartInProduct(menulist.tbl_menus_id)"  routerLink='/cart'  class="add-button">
+                                  Open cart
+                                  </ion-button>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                    </ion-card>
+                  </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

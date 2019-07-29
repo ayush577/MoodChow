@@ -1,0 +1,36 @@
+.mt-5{
+  margin-top: 5%;
+}
+
+.my-20{
+  margin:20px 0;
+}
+
+.go_back{
+  width: 20%;
+}
+
+.title_with_logo{
+  font-family: 'BebasNeue','Roboto Condensed','Poppins',sans-serif;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var( --ion-color-secondary );
+}
+
+.placeholder_color{
+  color: var( --ion-color-tertiary );
+  font-size:15px; 
+}
+
+.img-container{
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.forgot_icon{
+  width: 60px;
+  height: auto;
+}

@@ -1,0 +1,84 @@
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row class="ion-margin">
+      <ion-col size="4" offset="4">
+        <ion-img src="assets/images/locationmap.svg"> </ion-img>
+      </ion-col>
+    </ion-row>
+
+    <form role="form" [formGroup]="addressForm" (ngSubmit)="onSubmit()"> 
+
+        <div *ngIf=" submitted && f.address.errors || submitted && f.address2.errors || submitted && f.street.errors || submitted && f.landmark.errors ||  submitted && f.city.errors || submitted && f.zipcode.errors || addresserrors" >
+            <div class="error_message">{{addresserrorsmsg}}</div>
+        </div>
+
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Address Line 1</ion-label>
+          <ion-input type="text" [(ngModel)]="data.address" formControlName="address"
+            [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Address line 2 (Optional)</ion-label>
+          <ion-input type="text" [(ngModel)]="data.address2" formControlName="address2"
+            [ngClass]="{ 'is-invalid': submitted && f.address2.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Colony / Street / Locality</ion-label>
+          <ion-input type="text" [(ngModel)]="data.street" formControlName="street"
+            [ngClass]="{ 'is-invalid': submitted && f.street.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Landmark</ion-label>
+          <ion-input type="text" [(ngModel)]="data.landmark" formControlName="landmark"
+            [ngClass]="{ 'is-invalid': submitted && f.landmark.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">City</ion-label>
+          <ion-input type="text" [(ngModel)]="data.city" formControlName="city"
+            [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating">Zip Code</ion-label>
+          <ion-input type="number" [(ngModel)]="data.zipcode" formControlName="zipcode"
+            [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin"> 
+        <ion-col size="10" offset="1" text-center>
+          <button type="submit" class="common_button_style">
+            Save
+          </button>
+        </ion-col>
+    </ion-row>
+  </form>
+    <ion-row>
+      <ion-col text-center>
+        <span class="Login_skip_style" routerLink="/home">Skip</span>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
