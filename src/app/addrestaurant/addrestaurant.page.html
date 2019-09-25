@@ -1,0 +1,179 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/home">
+      &nbsp;
+      <img class="go_back" src="assets/images/goback2.png" />
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row no-padding *ngIf="count==0" class="animated fadeInLeft fast">
+      <ion-col no-padding>
+        <ion-row>
+          <ion-col text-center size="12" style="margin-top:1vw;">
+            <img src="assets/images/restaurant_demo.svg" alt="" />
+          </ion-col>
+          <ion-col text-center class="add_title" size="12">
+            Add Your Restaurant Now
+          </ion-col>
+        </ion-row>
+        <form [formGroup]="RestaurantForm1">
+          <ion-row>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-label class="placeholder_color" position="floating">Restaurant / Store Name</ion-label>
+                <ion-input type="text" formControlName="store_name" required> </ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-label class="placeholder_color" position="floating">Owner Name</ion-label>
+                <ion-input type="text" formControlName="owner_name" required> </ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-label class="placeholder_color" position="floating">Email Address</ion-label>
+                <ion-input type="text" formControlName="owner_email" required> </ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-label class="placeholder_color" position="floating">Phone Number</ion-label>
+                <ion-input type="tel" formControlName="owner_phn_no" required> </ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-select required [interfaceOptions]="customPopoverOptions" formControlName="category" (ionChange)="setCatId(select)" [(ngModel)]="select" interface="md-popover" placeholder="Select Category">
+                  <ion-select-option *ngFor="let select of catagory" [value]="select.tbl_category_id">{{select.tbl_category_name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-select required multiple [interfaceOptions]="customPopoverOptions1" formControlName="sub_category" interface="md-popover" placeholder="Select Sub Category">
+                  <ion-select-option *ngFor="let select of subCatagory" [value]="select.tbl_subcategory_id">{{select.tbl_subcategory_name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.store_name">
+              <div class="error-message" *ngIf="RestaurantForm1.get('store_name').hasError(validation.type) && (RestaurantForm1.get('store_name').dirty || RestaurantForm1.get('store_name').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.owner_name">
+              <div class="error-message" *ngIf="RestaurantForm1.get('owner_name').hasError(validation.type) && (RestaurantForm1.get('owner_name').dirty || RestaurantForm1.get('owner_name').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.owner_email">
+              <div class="error-message" *ngIf="RestaurantForm1.get('owner_email').hasError(validation.type) && (RestaurantForm1.get('owner_email').dirty || RestaurantForm1.get('owner_email').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.owner_phn_no">
+              <div class="error-message" *ngIf="RestaurantForm1.get('owner_phn_no').hasError(validation.type) && (RestaurantForm1.get('owner_phn_no').dirty || RestaurantForm1.get('owner_phn_no').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.category">
+              <div class="error-message" *ngIf="RestaurantForm1.get('category').hasError(validation.type) && (RestaurantForm1.get('category').dirty || RestaurantForm1.get('category').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.sub_category">
+              <div class="error-message" *ngIf="RestaurantForm1.get('sub_category').hasError(validation.type) && (RestaurantForm1.get('sub_category').dirty || RestaurantForm1.get('sub_category').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </form>
+        <ion-row>
+          <ion-col text-center size="12">
+            <button ion-button class="common_button_style mt-45" [disabled]="!RestaurantForm1.valid" (click)="next0()" style="width:40vw">Next</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding class="animated fadeInRight fast" *ngIf="count==1">
+      <ion-col no-padding>
+        <form [formGroup]="RestaurantForm2">
+          <ion-row>
+            <ion-col size="12" text-center>
+              <img src='assets/images/correct.svg' alt="correct" class="rlogo">
+            </ion-col>
+            <ion-col size="12" text-center>
+              <button ion-button (click)="imageOptions()" class="lightback" >Upload Logo</button>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-select required [interfaceOptions]="customPopoverOptions2" interface="md-popover" (ionChange)="setStateId(select)" [(ngModel)]="select" formControlName="state" placeholder="State">
+                  <ion-select-option *ngFor="let select of stateData" [value]="select.tbl_states_code">{{select.tbl_states_name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-select required [interfaceOptions]="customPopoverOptions3" interface="md-popover" formControlName="city" placeholder="City">
+                  <ion-select-option *ngFor="let select of cityData" [value]="select.city_id">{{select.city}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item>
+                <ion-label class="placeholder_color" position="floating">Zip Code</ion-label>
+                <ion-input type="tel" formControlName="zip_code" required> </ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="10" offset="1">
+              <ion-item style="margin-bottom:15vw;">
+                <ion-label class="placeholder_color" style="margin-top:5vw;padding-top: 0vw;" position="floating">Restaurant Address</ion-label>
+                <ion-textarea type="text" formControlName="restaurant_address" required> </ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </form>
+        <div class=" error2">
+            <ng-container *ngFor="let validation of validation_messages.state">
+              <div class="error-message" *ngIf="RestaurantForm2.get('state').hasError(validation.type) && (RestaurantForm2.get('state').dirty || RestaurantForm2.get('state').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.city">
+              <div class="error-message" *ngIf="RestaurantForm2.get('city').hasError(validation.type) && (RestaurantForm2.get('city').dirty || RestaurantForm2.get('city').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.zip_code">
+              <div class="error-message" *ngIf="RestaurantForm2.get('zip_code').hasError(validation.type) && (RestaurantForm2.get('zip_code').dirty || RestaurantForm2.get('zip_code').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.restaurant_address">
+              <div class="error-message" *ngIf="RestaurantForm2.get('restaurant_address').hasError(validation.type) && (RestaurantForm2.get('restaurant_address').dirty || RestaurantForm2.get('restaurant_address').touched)">
+                *{{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        <ion-row>
+          <ion-col size="6" text-center>
+            <button ion-button class="common_button_style" style="width:30vw; margin:5vw !important;" (click)="prev0()">Back</button>
+          </ion-col>
+          <ion-col size="6" text-left>
+            <button ion-button class="common_button_style" (click)="AddNewRestautant()" [disabled]="!RestaurantForm2.valid" style="width:30vw;margin:5vw !important;">Next</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

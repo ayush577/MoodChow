@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { FCM } from '@ionic-native/fcm/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
   providers: [
     StatusBar,
     CallNumber,
+    FCM,
     SplashScreen,Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

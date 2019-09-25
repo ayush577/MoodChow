@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'introslider',
-    pathMatch: 'prefix'
+    pathMatch: 'full'
   },
   {
     path: 'home',
@@ -29,7 +29,19 @@ const routes: Routes = [
     path: 'userprofile', loadChildren: './userprofile/userprofile.module#UserprofilePageModule'
   },
   { path: 'edituserprofile', loadChildren: './edituserprofile/edituserprofile.module#EdituserprofilePageModule'
-  }
+  },
+  { path: 'edituseraddress', loadChildren: './edituseraddress/edituseraddress.module#EdituseraddressPageModule' },
+  { path: 'addrestaurant', loadChildren: './addrestaurant/addrestaurant.module#AddrestaurantPageModule' },
+  { path: 'successfullorder', loadChildren: './successfullorder/successfullorder.module#SuccessfullorderPageModule' },
+  { path: 'timemanage', loadChildren: './timemanage/timemanage.module#TimemanagePageModule' },
+  { path: 'addmenulist', loadChildren: './addmenulist/addmenulist.module#AddmenulistPageModule' },
+  { path: 'managerestaurant', loadChildren: './managerestaurant/managerestaurant.module#ManagerestaurantPageModule' },
+  { path: 'editrestaurantdetial', loadChildren: './editrestaurantdetial/editrestaurantdetial.module#EditrestaurantdetialPageModule' },
+  { path: 'managemenulist', loadChildren: './managemenulist/managemenulist.module#ManagemenulistPageModule' },
+  { path: 'manageorder', loadChildren: './manageorder/manageorder.module#ManageorderPageModule' },
+  { path: 'clientorder/:manageorder', loadChildren: './clientorder/clientorder.module#ClientorderPageModule' },
+  { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+  { path: 'multipleimageupload', loadChildren: './multipleimageupload/multipleimageupload.module#MultipleimageuploadPageModule' }
 ];
 
 @NgModule({

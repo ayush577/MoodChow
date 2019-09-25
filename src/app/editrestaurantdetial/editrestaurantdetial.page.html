@@ -1,0 +1,49 @@
+<ion-header no-border>
+    <ion-toolbar>
+      <ion-buttons slot="start" (click)="goBack()">
+        &nbsp;
+        <img class="go_back" src="assets/images/goback2.png" />
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row class="editrow">
+      
+      <ion-col size="12" text-center style="margin-top:25vw;">
+        <img src="assets/images/resume copy.svg" alt="edits">
+      </ion-col>
+      
+
+      <ion-col size="12">
+          <ion-item>
+            <ion-label class="placeholder_color" position="floating">Owner Name</ion-label>
+            <ion-input type="text" formControlName="store_name" [(ngModel)]="restaurantdetails.name" [ngClass]="{ 'is-invalid': submitted &&  f.store_name.errors }">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="placeholder_color" position="floating">Email Address</ion-label>
+            <ion-input type="text" formControlName="owner_email" [(ngModel)]="restaurantdetails.email" [ngClass]="{ 'is-invalid': submitted &&  f.email.errors }">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="placeholder_color" position="floating">Zip Code</ion-label>
+            <ion-input type="text" formControlName="zip_code" [(ngModel)]="restaurantdetails.zipcode" [ngClass]="{ 'is-invalid': submitted &&  f.zipcode.errors }">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="placeholder_color" position="floating">Restaurant Address</ion-label>
+            <ion-input type="text" formControlName="restaurant_address" [(ngModel)]="restaurantdetails.restaurantaddress" [ngClass]="{ 'is-invalid': submitted &&  f.restaurant_address.errors }">
+            </ion-input>
+          </ion-item>
+      </ion-col>
+    </ion-row> 
+
+  </ion-grid>
+
+
+
+</ion-content>

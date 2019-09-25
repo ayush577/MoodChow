@@ -36,7 +36,9 @@ export class RegisterPage implements OnInit {
     let loginUser = localStorage.getItem('loginUser');        
     if(loginUser){
       this.router.navigate(['./home']); 
-    }    
+    }   
+    
+    this.data.usertoken = localStorage.getItem( 'usertoken');
 
     this.registerForm = this.formBuilder.group({ 
 

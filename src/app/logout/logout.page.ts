@@ -13,6 +13,7 @@ export class LogoutPage implements OnInit {
   ngOnInit() {
 
     localStorage.removeItem('loginUser');
+    localStorage.removeItem('RestaurantId');
 
     // localStorage.clear();
     

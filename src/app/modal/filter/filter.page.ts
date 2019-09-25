@@ -89,11 +89,11 @@ export class FilterPage implements OnInit {
     for(let i=0;i<this.filterName.length;i++){
       this.filterName[i].checked=false;
      }
-  }
+  }  
 
 
   options = [
-    { value: 'relevance', tbl_category_name: 'Relevance',checked:true},
+    { value: 'relevance', tbl_category_name: 'Relevance',checked:false},
     { value: 'rating', tbl_category_name: 'Rating',checked:false}
   ];
 
@@ -115,11 +115,12 @@ export class FilterPage implements OnInit {
   getsorting(){ 
 
      this.filterdata.filterSot = []; 
-     alert( 'Its work' );
      for(let i=0;i<this.options.length;i++){
+       if(this.options[i].checked){
         if(this.options[i].checked==true){
             this.filterdata.filterSot.push(this.options[i].value);
         }
+        } 
     } 
     console.log(this.filterdata)
   }

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, AbstractControl , Validators } from '@angular/f
 import { HttpClient } from "@angular/common/http";
 import { ToastController } from '@ionic/angular';
 import { environment } from '../../environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edituserprofile',
@@ -13,7 +14,7 @@ import { environment } from '../../environments/environment';
 })
 export class EdituserprofilePage implements OnInit {
 
-  constructor(public toastController: ToastController,private router: Router,private formBuilder: FormBuilder,private route: ActivatedRoute,private httpClient:HttpClient) { }
+  constructor(public toastController: ToastController,private router: Router,private formBuilder: FormBuilder,private route: ActivatedRoute,private httpClient:HttpClient,private location: Location) { }
 
   infoForm: FormGroup;
     loading = false;
@@ -24,6 +25,7 @@ export class EdituserprofilePage implements OnInit {
     profileResponse: any = {};
     messageResponseData: any = {};
     initProfileResponse: any = {};
+    profileInfo: any ={};
 
   ngOnInit() {
     
@@ -41,9 +43,7 @@ export class EdituserprofilePage implements OnInit {
 
       email: ['', [Validators.required]],
 
-      number: ['', [Validators.required]],
-
-      address: ['', [Validators.required]]
+      number: ['', [Validators.required]]
 
     }
     )
@@ -52,7 +52,7 @@ export class EdituserprofilePage implements OnInit {
 
   }
 
-  get userdata(){
+  get f(){
 
 
     if(this.infoForm.controls.name.errors && this.infoForm.controls.name.errors.required
@@ -65,15 +65,9 @@ export class EdituserprofilePage implements OnInit {
       &&
 
     this.infoForm.controls.number.errors &&
-    this.infoForm.controls.number.errors.required
-
-      &&
-
-    this.infoForm.controls.address.errors &&
-    this.infoForm.controls.address.errors.required  
+    this.infoForm.controls.number.errors.required 
 
       ) {
-
 
         this.profileerrormsg = " All fields are required";
 
@@ -99,16 +93,7 @@ export class EdituserprofilePage implements OnInit {
 
         this.profileerrormsg = "Please Enter Your Mobile Number";
 
-      } else if(
-
-        this.infoForm.controls.address.errors &&
-        this.infoForm.controls.address.errors.required  
-
-      ){
-
-        this.profileerrormsg = "Please Enter Your Complete Address";
-
-      } 
+      }
 
       return this.infoForm.controls;
 
@@ -125,8 +110,10 @@ export class EdituserprofilePage implements OnInit {
 
       responseData => {
 
-        this.initProfileResponse = responseData;
-        console.log( this.initProfileResponse );
+        this.profileResponse = responseData;
+        console.log( this.profileResponse );
+
+        this.profileInfo = this.profileResponse.userprofile;
 
       
       } ,
@@ -156,9 +143,11 @@ export class EdituserprofilePage implements OnInit {
       return;
     }
 
-    this.loading = true;
+    this.profileResponse.userid = this.data.userid;
 
-    this.httpClient.post( environment.weburl2 + "updateuserprofile", this.data,{ headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Methods':'POST'}})
+    this.loading = true;
+    console.log(this.profileResponse);
+    this.httpClient.post( environment.weburl + "updateuserprofile", this.profileResponse ,{ headers: { 'Content-Type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Methods':'POST'}})
 
     .subscribe(
 
@@ -166,15 +155,17 @@ export class EdituserprofilePage implements OnInit {
 
         this.profileResponse = responseData;
         console.log( this.profileResponse );
+        
 
         if( this.profileResponse.status == 200 ){
 
-          this.messageResponseData.msg = this.profileResponse.
+          this.messageResponseData.msg = this.profileResponse.success
           this.profilemsg();
+          this.router.navigate(['./userprofile'])
 
         } else if( this.profileResponse.status == 400 ){
 
-          this.messageResponseData.msg = this.profileResponse.
+          this.messageResponseData.msg = this.profileResponse.error
           this.profilemsg();
 
         }
@@ -197,12 +188,16 @@ export class EdituserprofilePage implements OnInit {
     );
   }
 
+  goBack(){
+    this.location.back();
+  }
+
   async profilemsg(){
       const toast = await this.toastController.create({
 
         message: this.messageResponseData.msg,
         duration: 3000,
-        position: 'bottom'
+        position: 'top'
 
       });
       toast.present();

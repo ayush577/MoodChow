@@ -1,6 +1,6 @@
 <ion-header no-border>
     <ion-toolbar>
-      <ion-buttons slot="start" (click)="back()">
+      <ion-buttons slot="start" (click)="goBack()">
         &nbsp;
         <img class="go_back" src="assets/images/goback2.png" />
       </ion-buttons>
@@ -11,48 +11,48 @@
       <ion-grid>
         <form role="form" [formGroup]="infoForm" (ngSubmit)="onSubmit()" >
 
-            <div *ngIf=" submitted && userdata.name.errors || submitted && userdata.email.errors || submitted && userdata.number.errors || submitted && userdata.address.errors || profileerrors" >
-                <div class="error_message">{{profileerrormsg}}</div>
-            </div>
-
         <ion-row class="editrow">
           <ion-col size="12" text-center style="margin-top:25vw;">
             <img src="assets/images/resume copy.svg" alt="edits">
           </ion-col>
+
+          <div *ngIf=" submitted && f.name.errors || submitted && f.email.errors || submitted && f.number.errors || profileerror" >
+              <div class="error_message">{{profileerrormsg}}</div>
+          </div>
+
           <ion-col size="12">
               <ion-item>
                   <ion-label class="placeholder_color" position="floating">Name</ion-label>
-                  <ion-input type="text" formControlName="name" [(ngModel)]="data.name" [ngClass]="{ 'is-invalid': submitted &&  userdata.name.errors }">
+                  <ion-input type="text" formControlName="name" [(ngModel)]="profileInfo.name" [ngClass]="{ 'is-invalid': submitted &&  f.name.errors }">
                   </ion-input>
                 </ion-item>
           </ion-col>
           <ion-col size="12">
               <ion-item>
                   <ion-label class="placeholder_color" position="floating">Email address</ion-label>
-                  <ion-input type="email" formControlName="email" [(ngModel)]="data.email" [ngClass]="{ 'is-invalid': submitted &&  userdata.email.errors }" >
+                  <ion-input type="email" formControlName="email" [(ngModel)]="profileInfo.email" [ngClass]="{ 'is-invalid': submitted &&  f.email.errors }" >
                   </ion-input>
                 </ion-item>
           </ion-col>
           <ion-col size="12">
               <ion-item>
                   <ion-label class="placeholder_color" position="floating">Mobile Number</ion-label>
-                  <ion-input type="tel" formControlName="number" [(ngModel)]="data.number" [ngClass]="{ 'is-invalid': submitted &&  userdata.number.errors }" >
-                  </ion-input>
-                </ion-item>
-          </ion-col>
-          <ion-col size="12">
-              <ion-item>
-                  <ion-label class="placeholder_color" position="floating">Address</ion-label>
-                  <ion-input type="text" formControlName="address" [(ngModel)]="data.address" [ngClass]="{ 'is-invalid': submitted && userdata.address.errors }" >
+                  <ion-input type="number" formControlName="number" [(ngModel)]="profileInfo.number" [ngClass]="{ 'is-invalid': submitted &&  f.number.errors }" >
                   </ion-input>
                 </ion-item>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col text-center>
-            <button ion-button class="find_more" >Save</button>
+            <button type="submit" ion-button class="common_button_style" >Save</button>
           </ion-col>
         </ion-row>
+
+        <ion-row class="ion-margin">
+            <ion-col text-center>
+              <ion-button routerLink="/edituseraddress" fill="clear" > Change Address ?</ion-button>
+            </ion-col>
+          </ion-row>
     
         </form>
       </ion-grid>

@@ -1,0 +1,35 @@
+ion-header{
+  ion-toolbar{
+      --background: transparent;
+      color: white;
+      background-image: linear-gradient(to bottom, #ff9f56, #e69a5e);
+      ion-icon{
+          
+          font-size: 8.5vw;
+      }
+      ion-title{
+          font-family: "Poppins",sans-serif;
+          font-size: 4.5vw;
+      }
+  }
+}
+
+.message{
+  padding: 10vw 15vw;
+  font-family: "poppins",sans-serif;
+  font-size: 3.4vw;
+  font-weight: 500;
+}
+.message1{
+  padding: 2vw 16vw;
+  font-family: "poppins",sans-serif;
+  font-size: 3.4vw;
+  font-weight: 500;
+}
+.find_more{
+  padding:2vw 15vw;
+}
+
+.mt-30{
+  margin-top:25%;
+}

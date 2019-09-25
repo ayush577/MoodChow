@@ -1,0 +1,14 @@
+ion-header{
+  ion-toolbar{
+      color: #303030;
+      --background: transparent;
+      position: absolute;
+      font-family: "poppins",sans-serif;
+      z-index: 2;
+      padding:5vw;
+  }
+}
+
+.go_back{
+  width: 25%;
+}

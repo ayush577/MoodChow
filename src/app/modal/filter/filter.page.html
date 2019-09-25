@@ -41,7 +41,7 @@
       <ion-row>  
           
         <ion-col class="list--filter--sort" size="12">
-            {{this.filterdata | json}}
+            <!-- {{this.filterdata | json}} -->
           <div [ngSwitch]="Category">
 
               <ion-row *ngSwitchCase="'sorttab'" >
@@ -55,12 +55,17 @@
                        <ion-checkbox item-right></ion-checkbox>
           
                      </ion-item> -->
+                   
                      <ion-item *ngFor="let item of options; let i = index">
-                       <ion-label>1{{item.tbl_category_name}}</ion-label>
-                       <ion-radio  [(ngModel)]="options[i].checked" value="{{ item.value }}" formControlName="sorting" item-right 
-                         (ionSelect)="getsorting(item)"></ion-radio>
-                     </ion-item>
-          
+                       
+                        <ion-label>1{{item.tbl_category_name}}</ion-label>
+                      
+                        <ion-radio  [(ngModel)]="item.checked" value="{{ item.value }}" formControlName="sorting" item-right 
+                         (ionSelect)="getsorting(item)">
+                        </ion-radio>
+                     
+                      </ion-item>
+           
                        </ion-radio-group>
                    </ion-list>
                       

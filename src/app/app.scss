@@ -48,14 +48,14 @@ ion-content{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ff7400;
+  background: transparent;
   // background :linear-gradient(#FF9F56 , #E69A5E);
 }
 
 .spinner {
   width: 40px;
   height: 40px;
-  background-color: #fff;
+  background-color: #e97c28;
 
   margin: 100px auto;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
@@ -182,6 +182,30 @@ ion-content{
   display: block;  
 }
 
+.select_popover{
+  .popover-content {
+      --min-width: 78% !important;
+      --width: 78% !important;
+  }
+}
+
+.special-done {
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.academy-picker {
+  --background: #FF9F56;
+  --ion-text-color: #fff;
+  .picker-opt-selected {
+      color: #303030;
+  }
+}
+
+.remove-inner-padding{
+--inner-padding-end : 0px;
+  padding: 0px;
+}
 
 
 

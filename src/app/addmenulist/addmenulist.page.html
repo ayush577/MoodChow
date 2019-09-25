@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-menu-button color="dark"></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <!-- <ion-icon slot="icon-only" name="search"></ion-icon> -->
+        <img src="assets/images/search.svg" alt="search" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form role="form" [formGroup]="listForm" (ngSubmit)="onSubmit()">
+    <div
+      *ngIf="
+        (submitted && f.name.errors) ||
+        (submitted && f.description.errors) ||
+        (submitted && f.price.errors)
+      "
+    >
+      <div class="error_message mt-20">{{ addmenuerrorsmsg }}</div>
+    </div>
+
+    <ion-row class="mt-10">
+      <ion-col size="6" offset="3" class="profile-upload mt-20">
+        <div class="profile-img">
+          <!-- <ion-img src="{{  }}">
+                </ion-img> -->
+          <ion-img
+            src="https://lh6.googleusercontent.com/-oQwxZcrwLKY/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdlR49OS1jkzkiOhbG10J3CC8J9YA/mo/photo.jpg"
+          >
+          </ion-img>
+          <ion-buttons
+            (click)="imageOptions()"
+            fill="clear"
+            class="profile_image-camera"
+          >
+            <ion-img src="assets/images/camerabutton.svg"></ion-img>
+          </ion-buttons>
+        </div>
+      </ion-col>
+
+      <ion-col class="mt-20" size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating"
+            >Item Name</ion-label
+          >
+          <ion-input
+            type="text"
+            formControlName="name"
+            [(ngModel)]="data.name"
+            [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+          >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col class="mt-20" size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating"
+            >Description</ion-label
+          >
+          <ion-input
+            type="text"
+            formControlName="description"
+            [(ngModel)]="data.description"
+            [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+          >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col class="mt-20" size="10" offset="1">
+        <ion-item>
+          <ion-label class="placeholder_color" position="floating"
+            >Price</ion-label
+          >
+          <ion-input
+            type="number"
+            formControlName="price"
+            [(ngModel)]="data.price"
+            [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+          >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col class="mt-20" size="10" offset="1" text-center>
+        <button type="submit" class="common_button_style">
+          Save
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

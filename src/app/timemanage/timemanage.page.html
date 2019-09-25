@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+            <ion-menu-button color="dark"></ion-menu-button>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <img src="../../assets/images/search.svg" alt="search">
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-no-padding">Manage time</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+    <form role="form" [formGroup]="timeForm" (ngSubmit)="onSubmit()">
+
+    <ion-grid fixed>
+        <div class="text-center" *ngIf="submitted && f.day.errors || submitted && f.opentime.errors || submitted && f.closetime.errors || submitted && f.status.errors || loginerrors" >
+            <div class="error_message">{{timeerrorsmsg}}</div>
+        </div>
+      <ion-row>
+        
+        <ion-col class="ion-margin" size="6" offset="3">
+          <ion-img src="assets/images/timemanage.svg">
+          </ion-img>
+        </ion-col>
+
+        <ion-col class="mt-25" size="12">
+
+              <!-- <ion-item>
+                <ion-label>Day: </ion-label>
+                <ion-label color="primary">{{ framework }}</ion-label>
+                <ion-button [ngClass]="{ 'is-invalid': submitted && f.day.errors }" formControlName="day" [(ngModel)]="framework.value" slot="end" fill="clear" (click)="showBasicPicker()">Select</ion-button>
+              </ion-item> -->
+
+              <ion-item>
+                <ion-label>Select Day</ion-label>
+                <ion-select [(ngModel)]="data.day" formControlName="day" multiple="true" cancelText="Nah" okText="Okay!">
+                  <ion-select-option value="sunday">Sunday</ion-select-option>
+                  <ion-select-option value="monday">Monday</ion-select-option>
+                  <ion-select-option value="tuesday">Tuesday</ion-select-option>
+                  <ion-select-option value="wednesday">
+                  wednesday</ion-select-option>
+                  <ion-select-option value="thursday">Thursday</ion-select-option>
+                  <ion-select-option value="friday">friday</ion-select-option>
+                  <ion-select-option value="Saturday">saturday</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item class="ion-no-margin my-30">
+                <ion-label>Store Open or Close</ion-label>
+                <ion-toggle [ngClass]="{ 'is-invalid': submitted && f.status.errors }" formControlName="status" [(ngModel)]="data.isToggled" (ionChange)="notify()"></ion-toggle>
+              </ion-item>
+
+              <ion-item *ngIf="data.isToggled" class="ion-no-margin my-30">
+                <ion-label>Open Time</ion-label>
+                <ion-datetime [ngClass]="{ 'is-invalid': submitted && f.opentime.errors }"  [(ngModel)]="data.opentime" formControlName="opentime" displayFormat="h:mm A" pickerFormat="HH:mm" (ionChange)="changeCheckOutStartTime()" ></ion-datetime>
+              </ion-item>
+
+              <ion-item *ngIf="data.isToggled" class="ion-no-margin my-30" >
+                  <ion-label>Close Time</ion-label>
+                  <ion-datetime [ngClass]="{ 'is-invalid': submitted && f.closetime.errors }" [(ngModel)]="data.closetime" displayFormat="h:mm A" formControlName="closetime" pickerFormat="HH:mm" (ionChange)="changeCheckOutStartEnd()"></ion-datetime>
+              </ion-item>
+
+             
+
+        </ion-col>
+
+        <ion-col class="mt-25"  size="6" offset="3">
+
+            <ion-button type="submit" class="common_button_style">
+                save
+            </ion-button>
+          
+        </ion-col>
+
+      </ion-row>
+    
+    </ion-grid>
+
+  </form>
+
+</ion-content>

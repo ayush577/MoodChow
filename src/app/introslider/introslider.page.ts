@@ -14,19 +14,27 @@ export class IntrosliderPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
 
   skipMsg: string = "Skip";
+  data:any ={}
 
   constructor(private router: Router) { }
 
   ngOnInit() {
 
-    if(localStorage.getItem('introForUser')){
-        this.router.navigate(['/login'])
+    this.data.userid = localStorage.getItem('loginUser');
+
+    this.data.introforuser = localStorage.getItem('introForUser')
+
+    if(this.data.userid && this.data.introforuser){
+      
+      this.router.navigate(['/home']);
+
+    } else if( this.data.introforuser ) {
+
+      this.router.navigate(['/login']);
+
     }
 
     localStorage.setItem('introForUser','true');
-
-
-
 
   }
 

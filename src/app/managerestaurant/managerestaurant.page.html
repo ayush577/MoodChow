@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+            <ion-menu-button color="dark"></ion-menu-button>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <img src="../../assets/images/search.svg" alt="search">
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-no-padding">Manage Restaurant</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  
+    <ion-spinner class="position_loader" *ngIf="loading" color="primary" name="bubbles"></ion-spinner>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col size="12" *ngFor="let yourRestaurant of restaurantData">
+            <ion-card class="ion-no-margin">
+              <div class="r_image">
+                <img src="{{ yourRestaurant.imageurl }}" alt="Restaurant Photo">
+                <button ion-button class="edit_back">
+                  <ion-icon name="md-create"></ion-icon>
+                </button>
+                <button class="edit_back-2 ion-float-left" (click)="deleteItem(yourRestaurant.tbl_restaurant_id)">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </div>
+              <ion-card-content style="padding:2vw;">
+                <ion-row no-padding>
+                  <ion-col no-padding class="r_title" size="7">
+                    <h4> {{ yourRestaurant.tbl_restaurant_name }} 
+                    </h4>
+                  </ion-col>
+                  <ion-col no-padding size="5" class="r_time" text-right>
+                   <p> Open-{{ yourRestaurant.timingrestaurant }} </p>
+                  </ion-col>
+                  <ion-col no-padding size="6" class="r_type">
+                   <p> Cafe </p>
+                  </ion-col>
+                  <ion-col no-padding size="6" text-right>
+                    <!-- <button ion-button class="statusbtn"> Status</button> -->
+                    <ion-toggle disabled="{{yourRestaurant.checkstatus}}"  [(ngModel)]="yourRestaurant.restaurantStatus" (ionChange)="notify(yourRestaurant.tbl_restaurant_id, yourRestaurant.restaurantStatus)"></ion-toggle>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+</ion-content>

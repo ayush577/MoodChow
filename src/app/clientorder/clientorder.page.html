@@ -1,0 +1,63 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goBack()">
+      &nbsp;
+      <img class="go_back" src="assets/images/goback2.png" />
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row text-center class="mt-20">
+      <ion-col size="6" offset="3">
+          <div class="image--container">
+            <img src="{{ userInfo.imageurl }}" alt="User-Image">
+          </div>
+          <div class="user--name">
+              <h5> {{ userInfo.username }}</h5>
+          </div>
+      </ion-col>
+      <ion-col size="6" offset="3">
+          <ion-buttons>
+            <button class="number" ion-button (click)="orderCall(userInfo.userphone)">
+              <ion-icon class="call-icon" name="call">
+              </ion-icon>
+              {{ userInfo.userphone }}
+            </button>
+          </ion-buttons>
+      </ion-col>
+      <ion-col size="8" offset="2" class="about-col">
+              <div class="center-address">
+                <img src="assets/images/pin.svg" alt="pin-point">
+                <p class="address"> Naruto Land from konoha </p>
+              </div>
+        </ion-col>
+
+      <ion-col size="12" class="ion-no-padding">
+        <div class="image-container--bill">
+          <ion-img class="bg-bill" src="../../assets/images/bg-bill.png"></ion-img>
+          <div class="list-container">
+            <ion-row class="ion-no-margin">
+              <ion-col size="2"><h6>SL</h6></ion-col>
+              <ion-col size="7"><h6>Item Discripation</h6></ion-col>
+              <ion-col size="3"><h6>Price</h6></ion-col>
+            </ion-row>
+
+            <div class="item-list--user">
+                <ion-row class="ion-no-margin">
+                    <ion-col size="2"><h6>SL</h6></ion-col>
+                    <ion-col size="7"><h6>Item Discripation</h6></ion-col>
+                    <ion-col size="3"><h6>Price</h6></ion-col>
+                  </ion-row>
+            </div>
+          </div>
+        </div>
+        </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  
+
+</ion-content>

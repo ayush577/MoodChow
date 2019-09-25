@@ -5,17 +5,44 @@
 
     <ion-row>
     <ion-toolbar class="toolbar_background-transparent">
-      <ion-buttons color="dark" slot="start">
+      <ion-buttons color="dark"  slot="start">
         <ion-menu-button color="dark"></ion-menu-button>
       </ion-buttons>
       <ion-img src="assets/images/moodchow.png"> </ion-img>
-      <ion-icon mode="md" color="dark" slot="end" name="more" class="more_icon"> </ion-icon>
+      <ion-buttons color="dark"slot="end" (click)="more()" >
+       
+            <ion-icon mode="md" color="dark" name="more" class="more_icon"> </ion-icon>
+
+      </ion-buttons>
     </ion-toolbar>
     </ion-row>
 
+    <ion-card  *ngIf="ismore"  class="more--card animated slideInDown">
+        <ion-row>
+          <ion-col size="12">
+              <ion-buttons color="dark" >  
+                <ion-icon name="notifications" slot="start"></ion-icon> &nbsp; Notification
+              </ion-buttons>
+          </ion-col>
+          <ion-col size="12">
+              <ion-buttons color="dark"> 
+                  <ion-icon name="settings" slot="start"></ion-icon> &nbsp; Setting
+              </ion-buttons>
+          </ion-col>
+          <ion-col size="12">
+              <ion-buttons *ngIf="data.userid" color="dark" routerLink="/logout">
+                  <ion-icon name="log-out" slot="start"></ion-icon> &nbsp; Logout
+              </ion-buttons>
+              <ion-buttons *ngIf="!data.userid" routerLink="/login" color="dark">
+                  <ion-icon name="log-in" slot="start"></ion-icon> &nbsp; LogIn
+              </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
     <ion-row no-padding>
       <ion-col no-padding>
-        <ion-searchbar mode="ios" class="custom_searchbar">
+        <ion-searchbar routerLink="/search" mode="ios" class="custom_searchbar">
         </ion-searchbar>
       </ion-col>
     </ion-row>
@@ -27,7 +54,7 @@
         <h4 class="Home__section-heading">Your Location</h4>
       </ion-col>
     </ion-row>
-    <ion-row class="container__location">
+    <ion-row *ngIf="userlocation.lat" class="container__location">
         <ion-col size="6">
             <h6> latitude  {{ userlocation.lat }} </h6>
         </ion-col>
@@ -35,25 +62,32 @@
             <h6> longitude  {{ userlocation.lng }} </h6>
         </ion-col>
     </ion-row>
+    <ion-row *ngIf="!userlocation.lat" >
+      <ion-col size="11" offset="1">
+        <app-search></app-search>
+      </ion-col>
+    </ion-row>
     <ion-row class="my-20">
         <ion-col size="12">
-            <h4 class="Home__section-heading">Top Restaurant</h4>
-          </ion-col>
+          <h4 class="Home__section-heading">Top Restaurant</h4>
+        </ion-col>
     </ion-row>
     <ion-row >
       <ion-col>
         <ion-slides class="ion-no-padding" [options]="slideOpts" >
           <ion-slide *ngFor="let top of topRestaurant">
             <ion-card class="welcome-card" routerLink="/restaurantprofile/{{top.tbl_restaurant_id}}" routerDirection="forward">
-                <img ion-img src="{{ top.photospath }}">
-                  <div class="card__footer">
-                      <ion-item>
-                        <ion-text slot="start" >{{ top.tbl_restaurant_name }}</ion-text>
-                        <ion-avatar slot="end">
-                          <img src="assets/images/restaurant_forward.svg" />
-                        </ion-avatar>
-                      </ion-item>
-                  </div>
+              <div class="image--container-top-restaurant">
+                <img ion-img src="{{ top.photospath }}" alt="Top-Restaurant Picture">
+              </div>
+                <div class="card__footer">
+                  <ion-item>
+                    <ion-text slot="start" >{{ top.tbl_restaurant_name }}</ion-text>
+                    <ion-avatar slot="end">
+                      <img src="assets/images/restaurant_forward.svg" />
+                    </ion-avatar>
+                  </ion-item>
+                </div>
               </ion-card>
           </ion-slide>
         </ion-slides>
@@ -61,8 +95,8 @@
     </ion-row>
     <ion-row class="my-20">
       <ion-col size="12">
-          <h4 class="Home__section-heading">Best Offers</h4>
-        </ion-col>
+        <h4 class="Home__section-heading">Best Offers</h4>
+      </ion-col>
   </ion-row>
   <ion-row>
     <ion-img class="offer_banner" src="assets/images/offer_banner.png"> </ion-img>
@@ -78,35 +112,32 @@
   </ion-row>
   <ion-row>
     
-    <ion-img class="filter__option-btn" src="assets/images/button_filter.svg" (click)="sortingOption()"></ion-img>
-    
-    <ion-img class="filter__option-btn" src="assets/images/button_filter2.svg"></ion-img>
+    <ion-img class="filter__option-btn" src="assets/images/button_filter2.svg" (click)="sortingOption()"></ion-img>
 
   </ion-row>
 
   <ion-row>
     <ion-col class="ion-no-padding" size="12">
         <ion-list lines="none" no-padding>
-            <ion-item no-padding routerLink="/restaurantprofile/{{restaurant.tbl_restaurant_id}}" *ngFor="let restaurant of restaurantlist" >
+            <ion-item class="remove-inner-padding" no-padding routerLink="/restaurantprofile/{{restaurant.tbl_restaurant_id}}" *ngFor="let restaurant of restaurantlist" >
                 <ion-card class="detail_card" no-padding>
                   <ion-row no-padding>
                     <ion-col size="4">
-                      <div class="image__container" width="100px" height="100px">
-                        <img  class="restaurant_images" src="{{ restaurant.restaurant_logo }}"/>
+                      <div class="image__container">
+                        <img class="restaurant_images" src="{{ restaurant.restaurant_logo }}" alt="Restaurant Picture" />
                       </div>
                     </ion-col>
                     <ion-col size="6" no-padding class="content-middle">
-              
                           <h1 class=" ion-no-padding ion-no-margin r_name">{{ restaurant.tbl_restaurant_name }}</h1>
                          <!-- <p class="ion-no-padding ion-no-margin r_address">{{restaurant.tbl_restaurant_address}}</p> -->
                           <p class="ion-no-padding ion-no-margin r_type">{{restaurant.tbl_category_name}}</p>
                           
                           <div class="rating_content">
-                              <img src="assets/images/star.svg"/>
-                              <ion-label> <p>{{ restaurant.rating }}</p>
-                                <p>( <span>{{restaurant.rating_count}}</span> )</p>
-                              </ion-label>
-                            </div>
+                            <img src="assets/images/star.svg"/>
+                            <ion-label> <p>{{ restaurant.rating }}</p>
+                              <p>( <span>{{restaurant.rating_count}}</span> )</p>
+                            </ion-label>
+                          </div>
                     </ion-col>
                     <ion-col size="2" no-padding>
                       <button ion-button class="arrow_forward1">

@@ -110,11 +110,11 @@ export class RestaurantprofilePage implements OnInit {
           if(cartget){
             this.cartData=JSON.parse(cartget);
           }
-          this.cartData.push({'product_id':fooddish},{'restaurant_id':this.data.tbl_restaurant_id});  
+          this.cartData.push({'product_id':fooddish, 'restaurant_id':this.data.tbl_restaurant_id});  
           localStorage.setItem('cartData',JSON.stringify(this.cartData));
         }
         else{
-            this.cartData.push({'product_id':fooddish},{'restaurant_id':this.data.tbl_restaurant_id}); 
+            this.cartData.push({'product_id':fooddish,'restaurant_id':this.data.tbl_restaurant_id}); 
             localStorage.setItem('cartData',JSON.stringify(this.cartData));
         }
       }

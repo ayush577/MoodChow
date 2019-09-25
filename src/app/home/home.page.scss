@@ -50,9 +50,19 @@
 
   box-shadow: 0.5px 0.5px 7.5px 0 rgba(0, 0, 0, 0.2);
 
+  .image--container-top-restaurant{
+
+    width: 260px;
+    height: 150px;
+
+  }
+
+ 
+
   img{
     width:100%;
     overflow: hidden;
+
   }
 
   .card__footer{
@@ -89,6 +99,7 @@
 
 .content-middle{
   width: 190px !important;
+  padding: 0 10px;
 }
 
 .offer_banner{
@@ -114,6 +125,11 @@
   border-radius: 5px;
   box-shadow: 0.5px 1px 3px 0 rgba(0, 0, 0, 0.15);
   margin: 11px 0 0 1.8vw;
+
+  & .image__container{
+    width: 115px;
+    height: 115px;
+  }
 
   .restaurant_images{
     width: 100%;
@@ -244,4 +260,28 @@
   top: 80%;
   position: absolute; 
   display: block;  
+}
+
+.more--card{
+width: 38%;
+z-index: 2;
+position: absolute;
+right: 0;
+padding: 5vw 3vw;
+top: 10vw;
+background: #ffffff;
+    box-shadow: 1px 1px 20px #e97c285c;
+
+ion-col{
+padding: 4vw 0vw;
+font-weight: 500;
+color: #404040;
+}
+ion-icon{
+color:#e97c28;
+}
+}
+
+.animated{
+animation-duration: 400ms;
 }

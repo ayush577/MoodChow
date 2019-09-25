@@ -1,0 +1,182 @@
+ion-item{
+  --height:15vw;
+  --padding-start: 0px !important; 
+ 
+  --inner-padding-end: 0px !important;
+  color: #303030;
+
+  font-family: "poppins",sans-serif;
+  margin-top: 2vw;
+}
+.find_more{
+  margin:3vw;
+  padding: 2vw 15vw;
+}
+
+.go_back{
+  
+  margin: 8px 8px;
+  width: 20%;
+
+}
+.mcard_arrow{
+
+  color: #ff9c5c;
+  font-size: 10vw;
+  margin-left: 84.5vw;
+  margin-top: -5vw;  
+
+}
+.more_card{
+  width: 56vw;
+  height: 100vw;
+ margin-left:38.5vw;
+  margin-top: -5vw;
+  text-align: center;
+  background: #ff9c5c;
+  
+  button{
+      background: transparent;
+      color: #fff;
+      padding: 1.5vw;
+      font-size: 5.5vw;
+  }
+
+}
+.morediv{
+  position: fixed;
+  z-index: 1;
+  height:0px;
+}
+.add_title{
+  
+  font-family: "Poppins";
+  font-weight: 500;
+  color: #303030;
+  margin-top:3vw;
+}
+
+.placeholder_color{
+  color: #abb4bd;
+  font-size:3.5vw; 
+  padding-top: 3vw;
+  font-family: "Poppins";
+}
+
+.lightback{
+  background-color: rgba(255, 159, 86, 0.3);
+  color: #303030; 
+  font-family: 'Poppins', Medium !important;
+  margin: 3vw;
+  height: 11vw;
+  padding: 3vw 7vw;
+  font-size: 4.5vw;
+  border-radius: 0.4vw;
+  
+}
+ion-input{
+  --highlight-color-focused: #fb9f55;
+}
+
+ion-item{
+  --height:15vw;
+  --padding-start: 0px !important; 
+  margin-top: -3vw;
+  --inner-padding-end: 0px !important;
+  color: #595959;
+  font-size: 3.5vw;
+  font-family: "poppins",sans-serif;
+}
+
+ion-select{
+  width: 100%;
+  max-width: 100%;
+  font-size: 3.5vw;
+  font-family: "poppins",sans-serif;
+  color: #505050 !important;
+  border: 1px solid #dedede;
+  padding: 2vw;
+  margin-top: 10vw;
+}
+
+.rlogo{
+    margin-top: 3vw;
+    width:35vw;
+  }
+
+
+  .segment_button {
+      color:#303030;
+      --color-checked: #fff;
+    }
+
+   .segment-button-checked{
+       color:#fb9f55;
+
+   }
+  .timing_btn{
+      background: #fb9f55;
+      width: 40vw;
+      padding: 4vw;
+      border-radius: 7vw;
+      color: #fff;
+      font-family: "poppins",sans-serif;
+      box-shadow: 0.5vw 0.9px 2vw #8b868699;
+  }
+  
+  .days_segments{
+      margin:8vw 0vw;
+      ion-item{
+          --border-style:none;
+      }
+      ion-input{
+          border: 0.1vw solid #dedede;
+          padding:0vw 2vw !important;
+      }
+  }
+
+  .animated{
+      animation-duration: 400ms;
+  }
+  ion-toggle{
+      --background:#fee9da;
+      --background-checked:#fb9f55;
+      --handle-background-checked:#757575;
+      --handle-background:#757575;
+      zoom: 1.5;
+  }
+
+  .validation-errors{
+    position: fixed;
+    top: 8%;
+    width: 102%;
+    z-index: 2;
+    
+
+    .error-message  {
+        margin: 0vw -1vw;
+        padding: 1vw 2vw;
+        color: #ff0202;
+        background: #ffc496ed;
+    }
+}
+.error2{
+    position: fixed;
+    top: 8%;
+    width: 102%;
+    z-index: 2;
+    
+
+    .error-message  {
+        margin: 0vw -1vw;
+        padding: 1vw 2vw;
+        color: #ff0202;
+        background: #ffc496ed;
+    }
+}
+
+.mt-45{
+  margin-top: 45px;
+}
+ 
+  

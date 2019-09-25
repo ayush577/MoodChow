@@ -1,3 +1,20 @@
+
+ion-header{
+  ion-toolbar{
+      --background: transparent;
+      color: white;
+      background-image: linear-gradient(to bottom, #ff9f56, #e69a5e);
+      ion-icon{
+          
+          font-size: 8.5vw;
+      }
+      ion-title{
+          font-family: "Poppins",sans-serif;
+          font-size: 4.5vw;
+      }
+  }
+}
+
 .mcard_arrow{
   color: #ff9c5c;
   font-size: 10vw;
@@ -41,20 +58,21 @@ padding-bottom: 0px;
 }
 
 .r_name{
-font-family: 'Poppins', Medium !important;
+font-family: 'Roboto' ,'Poppins', sans-serif !important;
 font-size: 4vw;
 font-weight: 500;
-text-transform: uppercase;
+text-transform:capitalize;
 color: #303030;
+height: 32px;
+margin-top: 5px;
 }
 .r_address{
 font-size: 3vw;
 text-transform: capitalize;
-padding-top: 0px;
 font-weight: 500;
-padding-right: 0px;
 font-family: 'Poppins' !important;
 color: #303030;
+margin-top: -10px;
 }
 .r_type{
 font-size: 2.5vw;
@@ -72,6 +90,19 @@ img{
 
 }
 
-.item-inner{
-  padding:0 !important;
+.deletebutton{
+  margin-right: 5px;
+  font-size: 2em;
+  color: #f49d5a;
 }
+
+ion-item{
+
+  .item-inner {
+    padding: 0px!important;
+  }
+
+}
+
+
+

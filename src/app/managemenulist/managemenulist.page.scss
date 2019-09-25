@@ -1,0 +1,56 @@
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    color: white;
+    background-image: linear-gradient(to bottom, #ff9f56, #e69a5e);
+    ion-icon {
+      font-size: 8.5vw;
+    }
+    ion-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 4.5vw;
+      font-weight: 400;
+    }
+  }
+}
+
+.item-inner {
+  padding-right: 0px!important;
+}
+
+.mcard_arrow{
+  color: #ff9c5c;
+  font-size: 10vw;
+  margin-left: 84.5vw;
+  margin-top: -5vw;  
+}
+.more_card{
+  width: 56vw;
+  height: 100vw;
+ margin-left:38.5vw;
+  margin-top: -5vw;
+  text-align: center;
+  background: #ff9c5c;
+  
+  button{
+      background: transparent;
+      color: #fff;
+      padding: 1.5vw;
+      font-size: 5.5vw;
+  }
+
+}
+.morediv{
+  position: fixed;
+  z-index: 2;
+  height:0px;
+}
+.r_edit{
+  border-radius: 50%;
+  font-size: 5vw;
+  padding-top: 0.8vw;
+  padding-left: 1.2vw;
+  width: 7vw;
+  height: 7vw;
+
+}

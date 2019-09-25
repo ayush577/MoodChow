@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
     loginerrorsmsg='';
     loginResponse: any={};
     messageResponseData: any={};
+    resturantsId = [];
 
 
     passwordType: string = 'password';
@@ -38,6 +39,11 @@ export class LoginPage implements OnInit {
     if(loginUser){
       this.router.navigate(['./home']); 
     }    
+
+    this.data.usertoken = localStorage.getItem( 'usertoken');
+
+    // this.data.usertoken = "narutisdajd";
+
 
     this.loginForm = this.formBuilder.group({
 
@@ -101,12 +107,21 @@ export class LoginPage implements OnInit {
         this.loginResponse = responseData;
         console.log( this.loginResponse );
 
+        this.resturantsId = this.loginResponse.restaurantid;
+        console.log( this.resturantsId );
+
         if( this.loginResponse.status == 200 ){
 
           if( this.loginResponse.userid){
 
             localStorage.setItem('loginUser', this.loginResponse.userid);
-            this.router.navigate([ '/home' ])
+
+            // localStorage.setItem('RestaurantId', this.loginResponse.resturantsId[i]);
+            if( this.loginResponse.restaurantid ){
+            localStorage.setItem('RestaurantId',JSON.stringify(this.loginResponse.restaurantid));
+            }
+
+            this.router.navigate([ '/home' ]);
 
           } else {
 
@@ -119,7 +134,7 @@ export class LoginPage implements OnInit {
               // this.loginerrors = true;
               this.messageResponseData.msg = this.loginResponse.error;
               this.loginmessage();
-              this.router.navigate(['/login'])
+              this.router.navigate(['/login']);
 
         }
         this.loading = false;

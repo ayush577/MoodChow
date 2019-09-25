@@ -10,7 +10,8 @@
             </ion-toolbar>
             <ion-slides [options]="slideOpts">
               <ion-slide *ngFor="let slide of getSidlerDetail">
-                <img class="slideimage" src="{{slide.imagepath}}"/>
+                <img class="slideimage" *ngIf="slide.imagepath" src="{{slide.imagepath}}"/>
+                <img class="slideimage" *ngIf="!slide.imagepath" src="../../assets/images/slider1.png"/>
               </ion-slide>
             </ion-slides>
           </ion-header>
@@ -93,8 +94,9 @@
                               </ion-button>
 
                               <ion-button *ngIf="checkCartInProduct(menulist.tbl_menus_id)"  routerLink='/cart'  class="add-button">
-                                  Open cart
-                                  </ion-button>
+                                Open cart
+                              </ion-button>
+                              
                             </ion-col>
                           </ion-row>
                         </ion-col>

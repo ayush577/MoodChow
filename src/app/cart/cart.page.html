@@ -8,54 +8,50 @@
     <ion-buttons slot="primary">
       <ion-button>
         <!-- <ion-icon slot="icon-only" name="search"></ion-icon> -->
-        <img src="../../assets/images/search.svg" alt="search">
+        <img src="assets/images/search.svg" alt="search">
       </ion-button>
     </ion-buttons>
-    <ion-title>Your Cart</ion-title>
+    <ion-title class="ion-no-padding" >Your Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
     <ion-grid>
         <ion-row>
           <ion-col size="12" class="restaurant_list" no-padding>
-              <ion-list lines="none" no-padding>
-                <!-- <ion-item-sliding *ngFor="let country of countries"> -->
-                  <ion-item class="ion-no-padding" *ngFor= "let list of menulist">
-                    <ion-card class="detail_card" no-padding>
+                    <ion-card class="detail_card" no-padding *ngFor="let list of orderInfo">
                       <ion-row no-padding>
                         <ion-col size="4" no-padding>
-                          <img *ngIf="list.image"  src="{{ list.imagepath }}"/>
-                          <img src="assets/images/sldier1.png"/>
+                          <img *ngIf="list.tbl_menus_pic"  src="{{ list.tbl_menus_pic }}"/>
+                          <img *ngIf="!list.tbl_menus_pic" src="assets/images/sldier1.png"/>
                         </ion-col>
-                        <ion-col size="8" >
+                        <ion-col size="8" class="ion-no-padding">
                           <ion-row>
                             <ion-col class="r_name" size="10">
                               <h6 class="ion-no-margin">{{ list.tbl_menus_name }}</h6>
                             </ion-col>
                             <ion-col size="2" text-right >
-                                <button ion-button class="deletebtn">
-                                  <img src="../../assets/images/dustbin.svg" alt="delete">
-                                </button>
+                                <ion-buttons fill="clear" class="deletebutton" (click)="deleteItem(list.tbl_menu_id , list.restaurantid)">
+                                  <ion-icon name="trash"></ion-icon>
+                                </ion-buttons>
                               </ion-col>
-                            <ion-col class="r_address" size="12">
+                            <ion-col class="r_address" size="10">
                              {{ list.tbl_menus_description }}
                             </ion-col>
-                            <ion-col size="6" class="price"  text-left >
+                            <ion-col size="10" class="price"  text-left >
                               $ {{ list.tbl_menus_price }}
-                            </ion-col>
-                            <ion-col size="6" text-right class="add_button_position">
-                              <ion-button  class="add-button">
-                              {{ text }}
-                              </ion-button>
                             </ion-col>
                           </ion-row>
                         </ion-col>
                       </ion-row>
                     </ion-card>
-                  </ion-item>
-              </ion-list>
+            </ion-col>
+            <ion-col class="ion-margin" size="6" offset="3">
+              
+              <ion-button shape="round" class="common_button_style" (click)="onClick()">
+                Send Enquiry
+              </ion-button>
+              
             </ion-col>
           </ion-row>
       </ion-grid>

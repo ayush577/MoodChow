@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from "@angular/common/http";
-import { ToastController } from '@ionic/angular';
+import { ToastController, Platform } from '@ionic/angular';
 import { Router,ActivatedRoute} from "@angular/router";
 import { environment } from '../../environments/environment';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -31,9 +31,11 @@ export class HomePage implements OnInit {
   restaurantlist =[];
   topRestaurant = [];
   notifications = false;
+  ismore = false;
+  subscription: any = {};
  
 
-  constructor(public toastController: ToastController,private router: Router,private route: ActivatedRoute,private httpClient:HttpClient,private geolocation: Geolocation, public actionSheetController: ActionSheetController,public modalController: ModalController) {
+  constructor(public toastController: ToastController,private router: Router,private route: ActivatedRoute,private httpClient:HttpClient,private geolocation: Geolocation, public actionSheetController: ActionSheetController,public modalController: ModalController, public platform: Platform) {
 
     this.slideOpts = {
       loop: false,
@@ -57,20 +59,20 @@ export class HomePage implements OnInit {
       this.userlocation.lat = resp.coords.latitude;
 
       this.userlocation.lng = resp.coords.longitude;
+      
       console.log( this.userlocation );
+      
       this.userlocation.userid = this.data.userid;
+      
       this.locationUpdate();
       
      }).catch((error) => {
         
       this.locationUpdate();
-
-      
       
       console.log('Error getting location', error);
        
      });
-
 
   }
 
@@ -82,6 +84,15 @@ export class HomePage implements OnInit {
     });
     return await modal.present();
   }
+
+  more(){
+    if(this.ismore==true){
+    this.ismore=false;
+    }
+    else{
+    this.ismore=true;
+    }
+    }
  
 
   locationUpdate(){
@@ -136,5 +147,15 @@ export class HomePage implements OnInit {
   //   this.notifications = true;
 
   // }
+
+  ionViewDidEnter() {
+    this.subscription = this.platform.backButton.subscribe(() => {
+      navigator["app"].exitApp();
+    });
+  }
+
+  ionViewWillLeave() {
+    this.subscription.unsubscribe();
+  }
 
 }

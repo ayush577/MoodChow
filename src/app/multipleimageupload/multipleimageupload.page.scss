@@ -1,0 +1,28 @@
+ion-header{
+  ion-toolbar{
+      --background: transparent;
+      color: white;
+      background-image: linear-gradient(to bottom, #ff9f56, #e69a5e);
+      ion-icon{
+          
+          font-size: 8.5vw;
+      }
+      ion-title{
+          font-family: "Poppins",sans-serif;
+          font-size: 4.5vw;
+      }
+  }
+}
+
+
+.block {
+    position: relative;
+    .deleteIcon {
+      position: absolute !important;
+      color: #ffffff !important;
+      margin-left: 80% !important;
+    }
+    .deleteIcon:before {
+      font-size: 30px !important;
+    }
+    }

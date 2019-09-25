@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goback()" >
+            <ion-icon slot="start" color="dark" name="arrow-round-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Search</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+
+    <ion-searchbar  mode="ios" class="custom_searchbar"
+      [formControl]="searchControl"
+      (ionChange)="onSearchInput()"
+    ></ion-searchbar>
+  
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+  
+    <ion-list lines="none">
+      <ion-item color="light" *ngFor="let item of temp"  routerLink="/restaurantprofile/{{item.tbl_restaurant_id}}">
+        {{ item.tbl_restaurant_name }}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>

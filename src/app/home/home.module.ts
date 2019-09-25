@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePage } from './home.page';
 import { FilterPage } from './../modal/filter/filter.page';
+import { ComponentsModule } from '../components/components.module'; 
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { FilterPage } from './../modal/filter/filter.page';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ComponentsModule,
     IonicModule,
     RouterModule.forChild([
       {

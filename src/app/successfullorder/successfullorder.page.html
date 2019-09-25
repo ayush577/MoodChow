@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+          <ion-menu-button color="dark"></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <!-- <ion-icon slot="icon-only" name="search"></ion-icon> -->
+        <img src="assets/images/search.svg" alt="search">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Your Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row >
+          <ion-col size="12" text-center style="margin-top:20vw;">
+            <img src="assets/images/correct.svg" alt="correct">
+          </ion-col>
+          <ion-col size="12" text-center class="message" >
+            Restaurant/ Store Contact to you shortly
+          </ion-col>
+          <ion-col size="12" text-center class="message1">
+            Contact Info - {{ restaurantInfo.tbl_restaurant_name }}
+          </ion-col>
+          <ion-col size="12" text-center>
+              <button ion-button class="common_button_style" routerDirection="root" (click)=call(restaurantInfo.tbl_restaurant_phone) shape="round" >{{ restaurantInfo.tbl_restaurant_phone }}</button>
+          </ion-col>
+          <ion-col class="mt-30" size="12" text-center>
+           <button ion-button class="common_button_style" routerLink="/home" routerDirection="root" >Continue</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+</ion-content>
