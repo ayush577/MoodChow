@@ -1,6 +1,6 @@
 <ion-content>
   <ion-slides pager="true" (ionSlideDidChange)="slideChange()">
-    <ion-slide>
+    <ion-slide *ngFor="let data of apiData; let i = index;">
       <ion-grid>
         <ion-row class="skip_position">
           <ion-col>
@@ -9,36 +9,43 @@
         </ion-row>
         <ion-row class="img_position">
           <ion-col>
-            <ion-img src="assets/images/walkthrough1.png"></ion-img>
+            <ion-img src="{{data.imageurl}}"></ion-img>
           </ion-col>
         </ion-row>
         <ion-row class="title_position">
           <ion-col>
-            <h1>Fresh Food</h1>
+            <h1>{{data.tbl_walkthrough_title}}</h1>
           </ion-col>
         </ion-row>
         <ion-row class="title_position">
           <ion-col>
-            <p class="intro_content">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-              ligula eget dolor bn.
+            <p class="intro_content"> 
+              {{data.tbl_walkthrough_text}}
             </p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="Get_Started" *ngIf="i+1 ==apiData.length">
+          <ion-col>
+            <button id="Get_Started_Button" (click)="theEnd()">
+              Get Started
+            </button>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-slide>
-    <ion-slide>
+
+     <!-- <ion-slide>
       <ion-grid>
       <ion-row class="skip_position">
           <ion-col>
-            <!-- <p class="skip_button">Skip</p> -->
+           
             <button (click)="skip()" id="skip_button">{{ skipMsg }}</button>
           </ion-col>
       </ion-row>
 
       <ion-row  class="img_position">
         <ion-col>
-            <ion-img class="ion-no-margin" src="assets/images/walkthrough2.png"></ion-img>
+            <ion-img class="ion-no-margin" src="{{data[1].imageurl}}"></ion-img>
         </ion-col>
       </ion-row>
 
@@ -57,8 +64,8 @@
               </ion-col>
             </ion-row>
       </ion-grid>
-    </ion-slide>
-    <ion-slide>
+    </ion-slide> -->
+    <!-- <ion-slide>
         <ion-grid>
         <ion-row class="skip_position">
             <ion-col>
@@ -94,6 +101,6 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-    </ion-slide>
+    </ion-slide>  -->
   </ion-slides>
 </ion-content>

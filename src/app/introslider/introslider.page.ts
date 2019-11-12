@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {IonSlides} from '@ionic/angular';
 
 import { Router } from '@angular/router';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-introslider',
@@ -15,10 +16,40 @@ export class IntrosliderPage implements OnInit {
 
   skipMsg: string = "Skip";
   data:any ={}
+  apiData:any=[];
 
-  constructor(private router: Router) { }
+  apiUrl="https://dev.hawkscode.com.au/moodchow/Webservice/getappwalkthrough";
+
+  constructor(private router: Router,private http: HttpClient) { }
 
   ngOnInit() {
+
+    this.http.post(`${this.apiUrl}`,{})
+      .subscribe( 
+
+        (responseData:any) => {
+
+          
+          // this.apiData = JSON.stringify(responseData);
+          
+          this.apiData = responseData.success;
+          console.log("API Response",this.apiData);
+          console.log("APIdata", this.apiData[0].imageurl);
+          console.log(this.apiData.length);
+          
+          
+          
+        
+          
+
+          
+          
+
+        }
+       
+      )
+
+
 
     this.data.userid = localStorage.getItem('loginUser');
 
