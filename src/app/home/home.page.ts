@@ -100,7 +100,7 @@ export class HomePage implements OnInit {
   locationUpdate(){
     this.loading = true;
 
-    this.presentLoading();
+    //this.presentLoading();
 
      this.httpClient.post( environment.weburl+ "homepageapi", this.userlocation, { headers: {'Content-Type' : 'application/json; charset= UTF-8','Access-Control-Allow-Methods' : '*'}})
       .subscribe( 
