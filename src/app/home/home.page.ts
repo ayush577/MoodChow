@@ -1,44 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 import { HttpClient } from "@angular/common/http";
-import { ToastController, Platform } from '@ionic/angular';
-import { Router,ActivatedRoute} from "@angular/router";
-import { environment } from '../../environments/environment';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { ActionSheetController } from '@ionic/angular';
-import { ModalController } from '@ionic/angular';
-import { FilterPage } from '../modal/filter/filter.page';
-import { LoadingController } from '@ionic/angular';
-
+import { ToastController, Platform } from "@ionic/angular";
+import { Router, ActivatedRoute } from "@angular/router";
+import { environment } from "../../environments/environment";
+import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { ActionSheetController } from "@ionic/angular";
+import { ModalController } from "@ionic/angular";
+import { FilterPage } from "../modal/filter/filter.page";
+import { LoadingController } from "@ionic/angular";
+import { UserService } from "../api/user.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: "app-home",
+  templateUrl: "home.page.html",
+  styleUrls: ["home.page.scss"]
 })
-
-
 export class HomePage implements OnInit {
-
   lat: any;
   lng: any;
   slideOpts: any;
-  data: any ={};
-  userlocation: any ={};
+  data: any = {};
+  userlocation: any = {};
   loading = false;
-  homeerrorsmsg='';
+  homeerrorsmsg = "";
   homeResponse: any = {};
   messageResponseData: any = {};
-  restaurantlist =[];
+  restaurantlist = [];
   topRestaurant = [];
   notifications = false;
   ismore = false;
   subscription: any = {};
   isLoading;
- 
 
-  constructor(public loadingController: LoadingController,public toastController: ToastController,private router: Router,private route: ActivatedRoute,private httpClient:HttpClient,private geolocation: Geolocation, public actionSheetController: ActionSheetController,public modalController: ModalController, public platform: Platform) {
-
+  constructor(
+    public authService: UserService,
+    public loadingController: LoadingController,
+    public toastController: ToastController,
+    private router: Router,
+    private route: ActivatedRoute,
+    private httpClient: HttpClient,
+    private geolocation: Geolocation,
+    public actionSheetController: ActionSheetController,
+    public modalController: ModalController,
+    public platform: Platform
+  ) {
     this.slideOpts = {
       loop: false,
       slidesPerView: 1.4,
@@ -46,108 +52,97 @@ export class HomePage implements OnInit {
       grabCursor: true,
       spaceBetween: 5
     };
-
   }
 
-  ngOnInit(){
+  ngOnInit() {
+    this.data.userid = localStorage.getItem("loginUser");
 
-    this.data.userid = localStorage.getItem('loginUser');
-    
+    this.geolocation
+      .getCurrentPosition()
+      .then(resp => {
+        // resp.coords.latitude
+        // resp.coords.longitude
 
-    this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
+        this.userlocation.lat = resp.coords.latitude;
 
-      this.userlocation.lat = resp.coords.latitude;
+        this.userlocation.lng = resp.coords.longitude;
 
-      this.userlocation.lng = resp.coords.longitude;
-      
-      console.log( this.userlocation );
-      
-      this.userlocation.userid = this.data.userid;
-      
-      this.locationUpdate();
-      
-     }).catch((error) => {
-        
-      this.locationUpdate();
-      
-      console.log('Error getting location', error);
-       
-     });
+        console.log(this.userlocation);
 
+        this.userlocation.userid = this.data.userid;
+
+        this.locationUpdate();
+      })
+      .catch(error => {
+        this.locationUpdate();
+
+        console.log("Error getting location", error);
+      });
   }
-
 
   async sortingOption() {
     const modal = await this.modalController.create({
       component: FilterPage,
-      cssClass: 'my-custom-modal-css'
+      cssClass: "my-custom-modal-css"
     });
     return await modal.present();
   }
 
-  more(){
-    if(this.ismore==true){
-    this.ismore=false;
+  more() {
+    if (this.ismore == true) {
+      this.ismore = false;
+    } else {
+      this.ismore = true;
     }
-    else{
-    this.ismore=true;
-    }
-    }
- 
+  }
 
-  locationUpdate(){
+  locationUpdate() {
     this.loading = true;
 
     this.presentLoading();
 
-     this.httpClient.post( environment.weburl+ "homepageapi", this.userlocation, { headers: {'Content-Type' : 'application/json; charset= UTF-8','Access-Control-Allow-Methods' : '*'}})
-      .subscribe( 
-
+    this.httpClient
+      .post(environment.weburl + "homepageapi", this.userlocation, {
+        headers: {
+          "Content-Type": "application/json; charset= UTF-8",
+          "Access-Control-Allow-Methods": "*"
+        }
+      })
+      .subscribe(
         responseData => {
-
           this.homeResponse = responseData;
-          console.log( this.homeResponse );
+          console.log(this.homeResponse);
 
           this.restaurantlist = this.homeResponse.restaurantlist;
           this.topRestaurant = this.homeResponse.toprestaurantlist;
 
-          console.log( this.topRestaurant );
+          console.log(this.topRestaurant);
           this.loading = false;
-          this.loadingDismiss();
-
+          this.authService.loadingDismiss();
         },
         error => {
-          this.loadingDismiss();
           this.loading = false;
           this.messageResponseData.msg = this.homeResponse.error;
           this.homemessage();
-          
-
+          this.authService.loadingDismiss();
         },
         () => {
-
           this.loading = false;
-          this.loadingDismiss();
-        
+          this.authService.loadingDismiss();
         }
-      )
+      );
   }
 
-
-  async homemessage(){
-
+  async homemessage() {
     const toast = await this.toastController.create({
       message: this.messageResponseData.msg,
       duration: 2000,
-      position: 'top',
+      position: "top",
       animated: true,
-      cssClass: 'toast_alert-color'
+      cssClass: "toast_alert-color"
     });
     toast.present();
-
-  } 
+  }
 
   // option(){
 
@@ -165,22 +160,18 @@ export class HomePage implements OnInit {
     this.subscription.unsubscribe();
   }
 
-
-  async presentLoading() {//Loding Controller Start 
+  async presentLoading() {
+    //Loding Controller Start
     this.isLoading = true;
-    return await this.loadingController.create({
-      spinner: 'crescent',
-      // message: '<div class="loading"><img src="../../assets/loading.gif"></div>',
-      mode: "md",
-      cssClass: 'custom-loading',
-    }).then(a => { a.present() })
-
+    return await this.loadingController
+      .create({
+        spinner: "crescent",
+        // message: '<div class="loading"><img src="../../assets/loading.gif"></div>',
+        mode: "md",
+        cssClass: "custom-loading"
+      })
+      .then(a => {
+        a.present();
+      });
   }
-
-  async loadingDismiss() {
-    this.isLoading = false;
-    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
-  }// End Loding Controlller 
-  
-
 }

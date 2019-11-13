@@ -1,18 +1,35 @@
-.video_page{
-   
-    iframe{
-        width:100%;
-        height: 55vw;
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    color: white;
+    background-image: linear-gradient(to bottom, #ff9f56, #e69a5e);
+    ion-icon {
+      font-size: 8.5vw;
     }
-    ion-card{
-          box-shadow: 1px 1px 20px #757575;
-        ion-card-title{
-            font-size: 4vw;
-            padding: 2vw 6vw;
-            font-family: "open sans",sans-serif;
-            text-transform: capitalize;
-            font-weight: 600;
-            color: #000000;
-        }
+    ion-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 4.5vw;
     }
+  }
+}
+
+.video_page {
+  iframe {
+    width: 100%;
+    height: 55vw;
+  }
+  ion-card {
+    box-shadow: 1px 1px 20px #75757500;
+    border-radius: 0;
+    ion-card-title {
+      font-size: 4vw;
+      padding: 3vw 6vw;
+      font-family: "open sans", sans-serif;
+      text-transform: capitalize;
+      font-weight: 600;
+      background-color: #ff0000;
+      color: #fff;
+      margin-top: -5px;
+    }
+  }
 }

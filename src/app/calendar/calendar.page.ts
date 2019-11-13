@@ -1,23 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { Location } from '@angular/common';
+import { Component, OnInit } from "@angular/core";
+import { Platform } from "@ionic/angular";
+import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.page.html',
-  styleUrls: ['./calendar.page.scss'],
+  selector: "app-calendar",
+  templateUrl: "./calendar.page.html",
+  styleUrls: ["./calendar.page.scss"]
 })
 export class CalendarPage implements OnInit {
-  subscription:any;
+  subscription: any;
 
-  constructor(public location : Location, public platform : Platform) { }
+  constructor(public location: Location, public platform: Platform) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  goback() {
+    this.location.back();
   }
+
   ionViewDidEnter() {
     this.subscription = this.platform.backButton.subscribe(() => {
       this.location.back();
     });
   }
-
 }
