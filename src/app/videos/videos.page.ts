@@ -14,19 +14,24 @@ export class VideosPage implements OnInit {
     this.getVideos();
   }
   getVideos(){
-    this.userservice.presentLoading();
+    
     this.userservice.getvideos().subscribe((data:any=[])=>{
-      this.userservice.loadingDismiss();
+      
 
       for(let i =0;i<data.videos.length;i++){
         this.apiData.push(data.videos[i]);
      
       }   
+
+      
      
       
     });
+    
   }
   videoUrl(index1){
+    
     return this.sanitizer.bypassSecurityTrustResourceUrl( this.apiData[index1].tbl_video_name + "?rel=0&showinfo=0&autohide=1");
+    
   }
 }

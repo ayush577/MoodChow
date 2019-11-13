@@ -8,7 +8,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class UserService {
 
   isLoading;
-  apiUrl = "https://dev.hawkscode.com.au/sneaker/Webservice";
+  apiUrl = "https://dev.hawkscode.com.au/moodchow/Webservice";
 
   constructor(private http: HttpClient,public loadingController: LoadingController) { }
 
@@ -25,6 +25,8 @@ export class UserService {
   }
 
   async loadingDismiss() {
+    console.log("LOginf------");
+    
     this.isLoading = false;
     return await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }// End Loding Controlller 
