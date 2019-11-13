@@ -100,7 +100,7 @@ export class HomePage implements OnInit {
   locationUpdate(){
     this.loading = true;
 
-    //this.presentLoading();
+    this.presentLoading();
 
      this.httpClient.post( environment.weburl+ "homepageapi", this.userlocation, { headers: {'Content-Type' : 'application/json; charset= UTF-8','Access-Control-Allow-Methods' : '*'}})
       .subscribe( 
@@ -119,15 +119,17 @@ export class HomePage implements OnInit {
 
         },
         error => {
-
+          this.loadingDismiss();
           this.loading = false;
           this.messageResponseData.msg = this.homeResponse.error;
           this.homemessage();
+          
 
         },
         () => {
 
           this.loading = false;
+          this.loadingDismiss();
         
         }
       )

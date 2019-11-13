@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { FCM } from '@ionic-native/fcm/ngx';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,12 +23,15 @@ import { FCM } from '@ionic-native/fcm/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpModule,
+    HttpClientModule
     
   ],
   providers: [
     StatusBar,
     CallNumber,
     FCM,
+    
   
     SplashScreen,Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

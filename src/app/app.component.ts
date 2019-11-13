@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { timer } from 'rxjs';
 import { Router,ActivatedRoute} from "@angular/router";
+import { MenuController, ModalController, Events, ActionSheetController } from "@ionic/angular";
 
 import { FCM } from '@ionic-native/fcm/ngx';
 
@@ -35,7 +36,8 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private router: Router,
     private route: ActivatedRoute,
-    private fcm: FCM
+    private fcm: FCM,
+    public menuCtrl: MenuController
   ) {
     this.initializeApp();
   }
@@ -111,6 +113,9 @@ export class AppComponent implements OnInit {
   }
 
   
-
+  events() {
+    this.menuCtrl.close();
+    this.router.navigate(["/calendar"]);
+  }
 
 }
