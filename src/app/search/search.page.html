@@ -20,7 +20,7 @@
       <ion-spinner></ion-spinner>
     </div>
   
-    <ion-list lines="none">
+    <ion-list *ngIf="initialValue" lines="none">
       <ion-item color="light" *ngFor="let item of temp"  routerLink="/restaurantprofile/{{item.tbl_restaurant_id}}">
         {{ item.tbl_restaurant_name }}
       </ion-item>
