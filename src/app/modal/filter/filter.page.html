@@ -1,15 +1,14 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons (click)="dismissPop()" slot="start">
       <ion-button>
-      <ion-icon class="cross--color--size" name="md-close" color="success"></ion-icon>
+        <ion-icon class="cross--color--size" name="md-close" color="success"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="title--sort--filter" color="primary" >Sort/Filter</ion-title>
+    <ion-title class="title--sort--filter" color="primary">Sort/Filter</ion-title>
     <ion-buttons slot="end">
-      <ion-button type="button" *ngIf="!checkFilter()" (click)="clearFilter()"> 
-      <ion-text class="clear--all--text" color="primary"  > Clear All </ion-text>
+      <ion-button type="button" *ngIf="!checkFilter()" (click)="clearFilter()">
+        <ion-text class="clear--all--text" color="primary"> Clear All </ion-text>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -17,94 +16,96 @@
 
 <ion-content>
 
-    <ion-grid> 
-      
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col class="ion-no-padding position-fixed" size="12">
+
+        <ion-segment lines="none" [(ngModel)]="Category" class="tabs" color="primary">
+          <ion-segment-button size="12" class="segament--style" value="sorttab">
+            <ion-label class="fz-12">Sort</ion-label>
+          </ion-segment-button>
+          <ion-segment-button size="12" value="filtertab">
+            <ion-label class="fz-12">Filter</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+      </ion-col>
+
+    </ion-row>
+
+    <form role="form" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+
       <ion-row>
 
-        <ion-col class="ion-no-padding position-fixed" size="12" >
-        
-          <ion-segment lines="none" [(ngModel)]="Category" class="tabs" color="primary">
-            <ion-segment-button size="12" class="segament--style"  value="sorttab">
-              <ion-label class="fz-12">Sort</ion-label>
-            </ion-segment-button>
-            <ion-segment-button size="12" value="filtertab">
-              <ion-label class="fz-12">Filter</ion-label>
-            </ion-segment-button>
-          </ion-segment>
-
-        </ion-col>
-
-      </ion-row>
-      
-      <form role="form" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
-        
-      <ion-row>  
-          
         <ion-col class="list--filter--sort" size="12">
-            <!-- {{this.filterdata | json}} -->
+          {{this.filterdata | json}}
           <div [ngSwitch]="Category">
 
-              <ion-row *ngSwitchCase="'sorttab'" >
-                  <ion-col size="12">
-                      <h1 class="text--style"> Show Restaurants By </h1>
-                      <ion-list lines="none">
-                        <ion-radio-group>
-                     <!-- <ion-item *ngFor="let item of options;">
+            <ion-row *ngSwitchCase="'sorttab'">
+              <ion-col size="12">
+                <h1 class="text--style"> Show Restaurants By </h1>
+                <ion-list lines="none">
+                  <ion-radio-group>
+                    <!-- <ion-item *ngFor="let item of options;">
                        
                        <ion-label>{{item.tbl_category_name}}</ion-label>
                        <ion-checkbox item-right></ion-checkbox>
           
                      </ion-item> -->
-                   
-                     <ion-item *ngFor="let item of options; let i = index">
-                       
-                        <ion-label>1{{item.tbl_category_name}}</ion-label>
-                      
-                        <ion-radio  [(ngModel)]="item.checked" value="{{ item.value }}" formControlName="sorting" item-right 
-                         (ionSelect)="getsorting(item)">
-                        </ion-radio>
-                     
-                      </ion-item>
-           
-                       </ion-radio-group>
-                   </ion-list>
-                      
-                  
-                  </ion-col>
-                </ion-row>
 
-                <ion-row *ngSwitchCase="'filtertab'" >
-                  <ion-col>
-                      <h1 class="text--style"> Cuisines </h1>
-                      <ion-list lines="none">
-                        <ion-item *ngFor="let item of filterName;">
-                          <ion-label>{{item.tbl_category_name}}</ion-label>
-                          <ion-checkbox [(ngModel)]="item.checked" checked="false" (ionChange)="getrestaurantcategorycheck(item)" value="{{ item.tbl_category_id }}" formControlName="filtering"  item-right>
-                          </ion-checkbox>
-                        </ion-item>
-                      </ion-list>
-                  </ion-col>
-                </ion-row>
-                
+                    <ion-item *ngFor="let item of options; let i = index">
+
+                      <ion-label>1{{item.tbl_category_name}}</ion-label>
+
+                      <ion-radio [(ngModel)]="item.checked" value="{{ item.value }}" formControlName="sorting"
+                        item-right (ionSelect)="getsorting(item)">
+                      </ion-radio>
+
+                    </ion-item>
+
+                  </ion-radio-group>
+                </ion-list>
+
+
+              </ion-col>
+            </ion-row>
+
+            <ion-row *ngSwitchCase="'filtertab'">
+              <ion-col>
+                <h1 class="text--style"> Cuisines </h1>
+                <ion-list lines="none">
+                  <ion-item *ngFor="let item of filterName;">
+                    <ion-label>{{item.tbl_category_name}}</ion-label>
+                    <ion-checkbox [(ngModel)]="item.checked" checked="false"
+                      (ionChange)="getrestaurantcategorycheck(item)" value="{{ item.tbl_category_id }}"
+                      formControlName="filtering" item-right>
+                    </ion-checkbox>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+
           </div>
 
         </ion-col>
-      
-      <ion-col size="4" offset="4">
-        
-        <ion-button [disabled]="checkFilter()"  type="submit" fill="solid" shape="round" color="primary">
-          Apply
-        </ion-button>
 
-      </ion-col>
+        <ion-col size="4" offset="4">
 
-   
+          <ion-button [disabled]="checkFilter()" type="submit" fill="solid" shape="round" color="primary">
+            Apply
+          </ion-button>
 
-    </ion-row>
-  </form>
-  
-    
-    
-    </ion-grid>
+        </ion-col>
+
+
+
+      </ion-row>
+    </form>
+
+
+
+  </ion-grid>
 
 </ion-content>
