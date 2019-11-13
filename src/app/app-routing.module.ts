@@ -41,7 +41,9 @@ const routes: Routes = [
   { path: 'manageorder', loadChildren: './manageorder/manageorder.module#ManageorderPageModule' },
   { path: 'clientorder/:manageorder', loadChildren: './clientorder/clientorder.module#ClientorderPageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
-  { path: 'multipleimageupload', loadChildren: './multipleimageupload/multipleimageupload.module#MultipleimageuploadPageModule' }
+  { path: 'multipleimageupload', loadChildren: './multipleimageupload/multipleimageupload.module#MultipleimageuploadPageModule' },  { path: 'videos', loadChildren: './videos/videos.module#VideosPageModule' },
+  { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule' }
+
 ];
 
 @NgModule({

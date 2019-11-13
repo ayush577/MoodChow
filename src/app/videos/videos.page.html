@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>videos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content overflow-scroll="true">
+  <ion-grid no-padding>
+    <ion-row class="video_page">
+      <ion-col no-padding size="12" *ngFor="let sor of apiData; let i = index"  [attr.data-index]="i" >
+        <ion-card>
+            <iframe [src]='videoUrl(i)' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <ion-card-title> {{sor.tbl_video_title}}</ion-card-title>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

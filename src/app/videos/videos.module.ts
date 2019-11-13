@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule } from '@ionic/angular';
 
-import { IntrosliderPage } from './introslider.page';
+import { VideosPage } from './videos.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: IntrosliderPage
+    component: VideosPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    HttpClientModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [IntrosliderPage]
+  declarations: [VideosPage]
 })
-export class IntrosliderPageModule {}
+export class VideosPageModule {}

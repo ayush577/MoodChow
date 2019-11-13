@@ -36,6 +36,7 @@
     "cordova-plugin-geolocation": "^4.0.1",
     "core-js": "^2.5.4",
     "moment": "^2.24.0",
+    "mx.ferreyra.callnumber": "0.0.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"
@@ -79,7 +80,9 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-geolocation": {},
       "mx.ferreyra.callnumber": {},
@@ -91,7 +94,8 @@
         "FCM_VERSION": "18.0.0",
         "GRADLE_TOOLS_VERSION": "2.3.+",
         "GOOGLE_SERVICES_VERSION": "3.0.0"
-      }
+      },
+      "call-number": {}
     },
     "platforms": [
       "ios",

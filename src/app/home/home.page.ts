@@ -8,6 +8,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { FilterPage } from '../modal/filter/filter.page';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -33,9 +34,10 @@ export class HomePage implements OnInit {
   notifications = false;
   ismore = false;
   subscription: any = {};
+  isLoading;
  
 
-  constructor(public toastController: ToastController,private router: Router,private route: ActivatedRoute,private httpClient:HttpClient,private geolocation: Geolocation, public actionSheetController: ActionSheetController,public modalController: ModalController, public platform: Platform) {
+  constructor(public loadingController: LoadingController,public toastController: ToastController,private router: Router,private route: ActivatedRoute,private httpClient:HttpClient,private geolocation: Geolocation, public actionSheetController: ActionSheetController,public modalController: ModalController, public platform: Platform) {
 
     this.slideOpts = {
       loop: false,
@@ -98,6 +100,8 @@ export class HomePage implements OnInit {
   locationUpdate(){
     this.loading = true;
 
+    this.presentLoading();
+
      this.httpClient.post( environment.weburl+ "homepageapi", this.userlocation, { headers: {'Content-Type' : 'application/json; charset= UTF-8','Access-Control-Allow-Methods' : '*'}})
       .subscribe( 
 
@@ -111,18 +115,21 @@ export class HomePage implements OnInit {
 
           console.log( this.topRestaurant );
           this.loading = false;
+          this.loadingDismiss();
 
         },
         error => {
-
+          this.loadingDismiss();
           this.loading = false;
           this.messageResponseData.msg = this.homeResponse.error;
           this.homemessage();
+          
 
         },
         () => {
 
           this.loading = false;
+          this.loadingDismiss();
         
         }
       )
@@ -157,5 +164,23 @@ export class HomePage implements OnInit {
   ionViewWillLeave() {
     this.subscription.unsubscribe();
   }
+
+
+  async presentLoading() {//Loding Controller Start 
+    this.isLoading = true;
+    return await this.loadingController.create({
+      spinner: 'crescent',
+      // message: '<div class="loading"><img src="../../assets/loading.gif"></div>',
+      mode: "md",
+      cssClass: 'custom-loading',
+    }).then(a => { a.present() })
+
+  }
+
+  async loadingDismiss() {
+    this.isLoading = false;
+    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+  }// End Loding Controlller 
+  
 
 }
