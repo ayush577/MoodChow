@@ -8,11 +8,6 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 export class UserService {
   isLoading;
   apiUrl = "https://dev.hawkscode.com.au/moodchow/Webservice";
-<<<<<<< HEAD
-
-  constructor(private http: HttpClient,public loadingController: LoadingController) { }
-=======
->>>>>>> 11c9c09c92a7dc858cb3a712af17e740f92d27d3
 
   constructor(
     private http: HttpClient,
@@ -45,5 +40,28 @@ export class UserService {
 
   getvideos() {
     return this.http.post(`${this.apiUrl}/getallvideos`, {});
+  }
+
+
+  getUserName(user_id){
+    console.log("user Id",user_id);
+    
+    const obj={userid:user_id}
+    return this.http.post(`${this.apiUrl}/getuserprofilename`, obj);
+
+  }
+  aboutus(){
+   
+    
+    
+    return this.http.post(`${this.apiUrl}/getaboutusdata`,{});
+
+  }
+  support(){
+   
+    
+    
+    return this.http.post(`${this.apiUrl}/getsupportdata`,{});
+
   }
 }

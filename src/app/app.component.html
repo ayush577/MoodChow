@@ -16,7 +16,7 @@
     <ion-menu type="overlay" class="my_custom-menu">
       <ion-header>
         <ion-toolbar class="menu_header">
-          <ion-title text-left>Hello,<span> Ayush Gandhi</span></ion-title>
+          <ion-title text-left>Hello,<span> {{userName}}</span></ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content class="sidebar_list-style">
@@ -84,12 +84,12 @@
             </ion-item>
             <hr class="hr">
             <ion-item class="list_style" [routerDirection]="'root'">
-              <ion-label routerLink="/multipleimageupload">
+              <ion-label routerLink="/aboutus">
                 Legal & About
               </ion-label>
             </ion-item>
             <ion-item class="list_style" [routerDirection]="'root'">
-              <ion-label routerLink="/home">
+              <ion-label routerLink="/support">
                 Support
               </ion-label>
             </ion-item>

@@ -42,7 +42,9 @@ const routes: Routes = [
   { path: 'clientorder/:manageorder', loadChildren: './clientorder/clientorder.module#ClientorderPageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'multipleimageupload', loadChildren: './multipleimageupload/multipleimageupload.module#MultipleimageuploadPageModule' },  { path: 'videos', loadChildren: './videos/videos.module#VideosPageModule' },
-  { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule' }
+  { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule' },
+  { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
+  { path: 'support', loadChildren: './support/support.module#SupportPageModule' }
 
 ];
 

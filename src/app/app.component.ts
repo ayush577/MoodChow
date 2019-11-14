@@ -8,6 +8,7 @@ import { Router,ActivatedRoute} from "@angular/router";
 import { MenuController, ModalController, Events, ActionSheetController } from "@ionic/angular";
 
 import { FCM } from '@ionic-native/fcm/ngx';
+import { UserService } from './api/user.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,11 @@ export class AppComponent implements OnInit {
   showSplash = true;
 
   data: any ={};
+
+  user_id;
+
+  userName;
+
 
   public appPages = [
     {
@@ -37,9 +43,13 @@ export class AppComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fcm: FCM,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    public authService:UserService
   ) {
+    this.getUserName();
     this.initializeApp();
+
+    
   }
 
   ngOnInit(){
@@ -79,6 +89,8 @@ export class AppComponent implements OnInit {
 
   this.data.userid = localStorage.getItem('loginUser'); 
 
+  
+
   this.data.introforuser = localStorage.getItem('introForUser');
 
 
@@ -116,6 +128,23 @@ export class AppComponent implements OnInit {
   events() {
     this.menuCtrl.close();
     this.router.navigate(["/calendar"]);
+  }
+
+
+  getUserName(){
+    this.user_id = localStorage.getItem('loginUser');
+
+    console.log("User Id" ,this.user_id);
+    
+
+    this.authService.getUserName(this.user_id).subscribe((data:any)=>{
+
+      console.log("user Id response",data);
+      this.userName = data.success;
+      
+
+    });
+
   }
 
 }
