@@ -35,7 +35,7 @@
     "cordova-plugin-fcm-with-dependecy-updated": "^3.0.0",
     "cordova-plugin-geolocation": "^4.0.1",
     "core-js": "^2.5.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mx.ferreyra.callnumber": "0.0.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
